@@ -41,7 +41,7 @@ const Navbar = () => {
           alignItems: 'center'
         }}>
           <li>
-            <Link href="#" className="nav-link">
+            <Link href="/booking" className="nav-link">
               Seat Booking 
             </Link>
           </li>

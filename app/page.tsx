@@ -333,12 +333,12 @@ export default function Home() {
 </section>
 
 {/* Footer Section */}
-<footer style={{ padding: '60px 20px 20px 20px', background: '#FFFFFF', display: 'flex', justifyContent: 'center' }}>
+<footer style={{ padding: '40px 20px 20px 20px', background: '#FFFFFF', display: 'flex', justifyContent: 'center' }}>
   <div style={{ maxWidth: '1190px', width: '100%' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '60px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
       
       {/* Footer Links */}
-      <div style={{ display: 'flex', gap: '80px' }}>
+      <div style={{ display: 'flex', gap: '80px' , marginTop: '35px'}}>
         <div style={footerLinkColStyle}>
           <a href="#" style={footerLinkStyle}>Login</a>
           <a href="#" style={footerLinkStyle}>Send Ticket</a>
