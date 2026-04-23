@@ -1,0 +1,15 @@
+/* Navbar.css */
+.nav-link {
+  color: #212121;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #e2fce6; /* Light green hover */
+  color: #15803d; /* Darker green text on hover */
+}
