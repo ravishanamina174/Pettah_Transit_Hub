@@ -78,7 +78,6 @@ export default function Home() {
     padding: '5px 5px 5px 18px',
     borderRadius: '100px',
     width: 'fit-content',
-    border: '1px solid #FFCC00',
     cursor: 'pointer',
     fontSize: '0.85rem',
     fontWeight: '600',
@@ -164,10 +163,9 @@ export default function Home() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
         <span style={{ fontSize: '1.2rem' }}>📍</span>
         <h2 style={{ 
-          fontSize: '1.5rem', 
+          fontSize: '1.2rem', 
           fontWeight: '700', 
           margin: 0,
-          borderBottom: '2px solid #0070f3',
           paddingBottom: '2px',
           display: 'inline-block'
         }}>
@@ -175,29 +173,29 @@ export default function Home() {
         </h2>
       </div>
       
-      <p style={{ fontSize: '1.1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
+      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
         The Pettah Central Bus Stand is the main transport hub for long-distance and intercity buses in Colombo.
       </p>
-      <p style={{ fontSize: '1.1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
+      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
         Located along Olcott Mawatha, near Fort Railway Station, it provides convenient access for passengers traveling between rail and road transport.
       </p>
-      <p style={{ fontSize: '1.1rem', color: '#333', lineHeight: '1.6', marginBottom: '32px' }}>
+      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '32px' }}>
         This central location makes it one of the busiest and most important transit points in the country.
       </p>
 
       <button style={{
         background: '#EBBF41',
         border: 'none',
-        padding: '14px 28px',
+        padding: '10px 28px',
         borderRadius: '50px',
-        fontSize: '1.1rem',
+        fontSize: '1rem',
         fontWeight: '700',
         cursor: 'pointer',
         boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
       }}>
         View Live Bus Timetable
       </button>
-      <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '12px', paddingLeft: '5px' }}>
+      <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '12px', paddingLeft: '5px' }}>
         Check daily and weekly schedules or find your route<br/> instantly using our smart route system.
       </p>
     </div>
@@ -265,6 +263,114 @@ export default function Home() {
   </div>
 </section>
 
+{/* System Works & Destinations Section */}
+<section style={{ padding: '80px 20px', background: '#F9F7F2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div style={{ maxWidth: '1190px', width: '100%' }}>
+    
+    {/* How this system works */}
+    <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '20px' }}>How this system works</h2>
+    <p style={{ maxWidth: '1300px', color: '#555', lineHeight: '1.6', marginBottom: '40px', fontSize: '1rem' }}>
+      Passengers can browse routes, check timetables, and reserve seats through the web, app, or hotline-based booking flow. The official 1315/eseat 
+      platform supports real-time seat reservation and passenger transport information, and users can choose seats from the vehicle's seat layout before 
+      receiving confirmation by SMS or email, ensuring a convenient and efficient booking experience.
+    </p>
+
+    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '80px' }}>
+      <img src="/steps.png" alt="Booking Steps" style={{ width: '100%', maxWidth: '600px' }} />
+    </div>
+
+    {/* Top Destinations */}
+    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+      <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '10px' }}>Top Destinations and bus connections</h2>
+      <p style={{ color: '#666', fontWeight: '600' }}>Cities</p>
+      <div style={{ width: '100%', height: '1px', background: '#E0E0E0', marginTop: '20px' }}></div>
+    </div>
+
+    {/* Destinations Grid */}
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
+      <div style={destinationColumnStyle}>
+        <h4 style={columnTitleStyle}>Western / Colombo suburbs</h4>
+        <ul style={listStyle}>
+          <li>Gampaha</li><li>Pugoda</li><li>Kirindiwela</li><li>Malwana</li><li>Delgoda</li>
+          <li>Negombo</li><li>Moratuwa</li><li>Panadura</li><li>Kalutara</li><li>Aluthgama</li>
+          <li>Mattegoda</li><li>Rukmalgama</li><li>Avissawella</li><li>Padukka</li>
+        </ul>
+      </div>
+
+      <div style={destinationColumnStyle}>
+        <h4 style={columnTitleStyle}>Southern corridor</h4>
+        <ul style={listStyle}>
+          <li>Galle</li><li>Matara</li><li>Tangalle</li><li>Kataragama</li><li>Deniyaya</li>
+          <li>Mathugama</li><li>Elpitiya</li><li>Goluwamulla</li><li>Uragasmanhandiya</li>
+        </ul>
+      </div>
+
+      <div style={destinationColumnStyle}>
+        <h4 style={columnTitleStyle}>Central / hill-country corridor</h4>
+        <ul style={listStyle}>
+          <li>Badulla</li><li>Passara</li><li>Bandarawela</li><li>Kandy</li><li>Digana</li>
+          <li>Nawalapitiya</li><li>Hatton</li><li>Nuwara Eliya</li><li>Monaragala</li><li>Welimada</li>
+        </ul>
+      </div>
+
+      <div style={destinationColumnStyle}>
+        <h4 style={columnTitleStyle}>North / Eastern corridor</h4>
+        <ul style={listStyle}>
+          <li>Anuradhapura</li><li>Vavuniya</li><li>Jaffna</li><li>Kankesanthurai</li><li>Point Pedro</li>
+          <li>Mulathivu</li><li>Nandikadal</li><li>Welioya</li><li>Horowpathana</li><li>Akkaraipattu</li>
+          <li>Ampara</li><li>Kalmunai</li><li>Trincomalee</li>
+        </ul>
+      </div>
+
+      <div style={destinationColumnStyle}>
+        <h4 style={columnTitleStyle}>Sabaragamuwa corridor</h4>
+        <ul style={listStyle}>
+          <li>Ratnapura</li><li>Balangoda</li><li>Embilipitiya</li><li>Rakwana</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Footer Section */}
+<footer style={{ padding: '60px 20px 20px 20px', background: '#FFFFFF', display: 'flex', justifyContent: 'center' }}>
+  <div style={{ maxWidth: '1190px', width: '100%' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '60px' }}>
+      
+      {/* Footer Links */}
+      <div style={{ display: 'flex', gap: '80px' }}>
+        <div style={footerLinkColStyle}>
+          <a href="#" style={footerLinkStyle}>Login</a>
+          <a href="#" style={footerLinkStyle}>Send Ticket</a>
+          <a href="#" style={footerLinkStyle}>Transfer Ticket</a>
+          <a href="#" style={footerLinkStyle}>Contact Us</a>
+        </div>
+        <div style={footerLinkColStyle}>
+          <a href="#" style={footerLinkStyle}>FAQ</a>
+          <a href="#" style={footerLinkStyle}>T & C</a>
+          <a href="#" style={footerLinkStyle}>Privacy Policy</a>
+        </div>
+      </div>
+
+      {/* Footer Info & Logo */}
+      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+        <img src="/sltb.png" alt="SLTB Logo" style={{ width: '120px', marginBottom: '15px' }} />
+        <p style={{ fontWeight: '800', margin: '0 0 5px 0', fontSize: '0.9rem' }}>Sri Lanka Transport Board</p>
+        <p style={footerDetailStyle}>No. 200, Kirula Road, Colombo 5</p>
+        <p style={footerDetailStyle}>+94 (0) 11 7706000 | +94 (0) 11 25811120 - 4</p>
+        <p style={footerDetailStyle}>+94 (0) 11 2589683 | info@sltb.lk</p>
+      </div>
+    </div>
+
+    {/* Copyright */}
+    <div style={{ borderTop: '1px solid #EEE', paddingTop: '20px', textAlign: 'center' }}>
+      <p style={{ fontSize: '0.75rem', color: '#999', margin: 0 }}>
+        © 2026 Sri Lanka Transport Board. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
     </main>    
   );
 }
@@ -313,4 +419,44 @@ const bubbleStyle: React.CSSProperties = {
   whiteSpace: 'nowrap',
   boxShadow: '0 4px 10px rgba(0,0,0,0.03)',
   zIndex: 2
+};
+
+const destinationColumnStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column'
+};
+
+const columnTitleStyle: React.CSSProperties = {
+  fontSize: '0.95rem',
+  fontWeight: '800',
+  marginBottom: '15px',
+  color: '#000'
+};
+
+const listStyle: React.CSSProperties = {
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  fontSize: '0.85rem',
+  lineHeight: '1.8',
+  color: '#333'
+};
+
+const footerLinkColStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '15px'
+};
+
+const footerLinkStyle: React.CSSProperties = {
+  textDecoration: 'none',
+  color: '#000',
+  fontSize: '0.9rem',
+  fontWeight: '500'
+};
+
+const footerDetailStyle: React.CSSProperties = {
+  fontSize: '0.8rem',
+  color: '#333',
+  margin: '2px 0'
 };
