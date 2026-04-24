@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Left Side: Logo & Title */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }}>
           <img 
-            src="/bus-logo.png" 
+            src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/bus-logo.png" 
             alt="Logo" 
             style={{ width: '60px', height: '60px', objectFit: 'contain' }} 
           />

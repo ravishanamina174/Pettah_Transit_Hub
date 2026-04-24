@@ -7,7 +7,15 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = ["/h1.jpg", "/h2.jpg", "/h3.jpg", "/h4.jpg", "/h5.jpg","/h6.jpg","/h7.jpg"];
+  const images = [
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h1.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h2.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h3.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h4.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h5.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h6.jpg",
+  "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h7.jpg"
+];
 
   const nextSlide = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -278,7 +286,7 @@ export default function Home() {
   </a>
 
   <img 
-    src="/map.png" 
+    src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/map.png" 
     alt="Pettah Map" 
     style={{ 
       width: '100%', 
@@ -436,7 +444,7 @@ export default function Home() {
 
       {/* Footer Info & Logo */}
       <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-        <img src="/sltb.png" alt="SLTB Logo" style={{ width: '120px', marginBottom: '15px' }} />
+        <img src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/sltb.png" alt="SLTB Logo" style={{ width: '120px', marginBottom: '15px' }} />
         <p style={{ fontWeight: '800', margin: '0 0 5px 0', fontSize: '0.9rem' }}>Sri Lanka Transport Board</p>
         <p style={footerDetailStyle}>No. 200, Kirula Road, Colombo 5</p>
         <p style={footerDetailStyle}>+94 (0) 11 7706000 | +94 (0) 11 25811120 - 4</p>
