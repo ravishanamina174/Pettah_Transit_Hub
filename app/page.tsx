@@ -192,7 +192,10 @@ export default function Home() {
         fontWeight: '700',
         cursor: 'pointer',
         boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
-      }}>
+      }}
+      onMouseOver={(e) => e.currentTarget.style.background = '#d9ae36'}
+      onMouseOut={(e) => e.currentTarget.style.background = '#EBBF41'}
+      >
         View Live Bus Timetable
       </button>
       <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '12px', paddingLeft: '5px' }}>
