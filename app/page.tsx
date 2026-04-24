@@ -1,7 +1,17 @@
 "use client";
+import Link from 'next/dist/client/link';
 import Navbar from '../components/Navbar';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = ["/h1.jpg", "/h2.jpg", "/h3.jpg", "/h4.jpg", "/h5.jpg","/h6.jpg","/h7.jpg"];
+
+  const nextSlide = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+
   return (
     <main>
       <div style={{ padding: '0.5rem' }}>
@@ -9,102 +19,125 @@ export default function Home() {
       </div>
 
       <section style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
-       <div style={{
-         width: '100%',
-         maxWidth: '1190px',
-         border: '1px solid #B5B4B3',
-         borderRadius: '30px',
-         padding: '13px 13px',
-         display: 'flex',
-         gap: '36px',
-         alignItems: 'center',
-         background: '#FFFFFF',
-         minHeight: '500px'
-       }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '1190px',
+        border: '1px solid #B5B4B3',
+        borderRadius: '30px',
+        padding: '13px',
+        display: 'flex',
+        gap: '36px',
+        alignItems: 'center',
+        background: '#FFFFFF',
+        minHeight: '500px'
+      }}>
 
-    {/* Left Side: Image Grid */}
-    <div style={{ flex: 1.6, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        {/* Carousel Section */}
+        <div style={{ 
+          flex: 1.6, 
+          position: 'relative', 
+          height: '475px', 
+          overflow: 'hidden', 
+          borderRadius: '20px',
+          background: '#f0f0f0' 
+        }}>
+          {/* Navigation Buttons */}
+          <button 
+            onClick={prevSlide}
+            style={{ ...navBtnStyle, left: '20px' }}
+            onMouseOver={(e) => e.currentTarget.style.background = '#fff'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)'}
+          >‹</button>
+          
+          <button 
+            onClick={nextSlide}
+            style={{ ...navBtnStyle, right: '20px' }}
+            onMouseOver={(e) => e.currentTarget.style.background = '#fff'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)'}
+          >›</button>
 
-      {/* Top Row — 2 images, taller */}
-      <div style={{ display: 'flex', gap: '15px', height: '285px' }}>
-        <img src="/h1.jpg" alt="Pettah 1" style={imageStyle} />
-        <img src="/h2.jpg" alt="Pettah 2" style={imageStyle} />
+          {/* Main Image */}
+          <img 
+            src={images[currentIndex]} 
+            alt="Hero Carousel" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: '0.5s ease-in-out' }} 
+          />
+
+          {/* Dot Indicators */}
+          <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
+            {images.map((_, i) => (
+              <div key={i} style={{
+                width: '8px', height: '8px', borderRadius: '50%',
+                background: i === currentIndex ? '#FFCC00' : 'rgba(255,255,255,0.5)',
+                transition: '0.3s'
+              }} />
+            ))}
+          </div>
+        </div>
+
+        {/* Text Content Section */}
+        <div style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
+          <h1 style={{ fontSize: '2.6rem', fontWeight: '800', lineHeight: '1.15', margin: 0, color: '#000', letterSpacing: '-0.5px' }}>
+            Plan your journey from Pettah, Colombo's main transport hub
+          </h1>
+
+          <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
+            Travel across Sri Lanka with ease using real-time bus schedules,
+            route guidance, and seamless seat booking from Pettah Central Bus Stand.
+          </p>
+
+
+          <button
+      onClick={() => router.push('/booking')} // Redirection logic for Next.js
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '10px',
+        background: 'transparent',
+        color: '#111',
+        border: 'none',
+        borderRadius: '0',
+        padding: '6px 2px 2px 2px',
+        cursor: 'pointer',
+        fontSize: '15px',
+        fontWeight: '500',
+        transition: 'gap 0.2s, color 0.2s',
+        position: 'relative',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.gap = '16px';
+        e.currentTarget.style.color = '#ebbc02';
+        const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
+        if (underline) underline.style.borderBottomColor = '#ebbc02';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.gap = '10px';
+        e.currentTarget.style.color = '#111';
+        const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
+        if (underline) underline.style.borderBottomColor = '#111';
+      }}
+    >
+      Book Your Seat Now
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span
+        className="underline"
+        style={{
+          position: 'absolute',
+          bottom: '0',
+          left: '2px',
+          width: '42%',
+          borderBottomWidth: '1.5px',
+          borderBottomStyle: 'solid',
+          borderBottomColor: '#111',
+          transition: 'border-color 0.2s',
+        }}
+      />
+    </button>
+        </div>
       </div>
-
-      {/* Bottom Row — 3 images, shorter */}
-      <div style={{ display: 'flex', gap: '15px', height: '175px' }}>
-        <img src="/h3.jpg" alt="Pettah 3" style={imageStyle} />
-        <img src="/h4.jpg" alt="Pettah 4" style={imageStyle} />
-        <img src="/h5.jpg" alt="Pettah 5" style={imageStyle} />
-      </div>
-    </div>
-
-    {/* Right Side: Text Content */}
-  <div style={{ 
-    flex: 0.85, 
-    display: 'flex', 
-    flexDirection: 'column', 
-   gap: '18px',
-    alignSelf: 'flex-start', // 1. Break away from the vertical center
-    paddingTop: '20px'       // 2. Adjust this to match the exact top alignment you want
-  }}>
-  <h1 style={{
-    fontSize: '2.6rem',
-    fontWeight: '800',
-    lineHeight: '1.15',
-    margin: 0,
-    color: '#000',
-    letterSpacing: '-0.5px'
-  }}>
-    Plan your journey from Pettah, Colombo's main transport hub
-  </h1>
-
-  <p style={{
-    fontSize: '0.95rem',
-    color: '#666',
-    lineHeight: '1.6',
-    margin: 0,
-  }}>
-    Travel across Sri Lanka with ease using real-time bus schedules,
-    route guidance, and seamless seat booking from Pettah Central Bus Stand.
-  </p>
-
-  <button style={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    background: '#000',
-    color: '#fff',
-    padding: '5px 5px 5px 18px',
-    borderRadius: '100px',
-    width: 'fit-content',
-    cursor: 'pointer',
-    fontSize: '0.85rem',
-    fontWeight: '600',
-    letterSpacing: '0.1px',
-    marginTop: '8px',
-    boxShadow: '0 0 12px rgba(255, 204, 0, 0.1)',
-    transition: 'all 0.2s ease',
-  }}>
-    Book Your Seat Now
-    <div style={{
-      background: '#FFCC00',
-      color: '#000',
-      borderRadius: '50%',
-      width: '26px',
-      height: '26px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: '0.9rem',
-      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
-    }}>
-      <span style={{ transform: 'translateY(-1px)' }}>→</span>
-    </div>
-   </button>
-   </div>
-  </div>
-  </section> 
+    </section> 
     
   <div style={{ 
   display: 'flex', 
@@ -183,35 +216,81 @@ export default function Home() {
         This central location makes it one of the busiest and most important transit points in the country.
       </p>
 
+      <Link href="/timetable" >
       <button style={{
         background: '#EBBF41',
         border: 'none',
         padding: '10px 28px',
         borderRadius: '50px',
         fontSize: '1rem',
+        color: '#302f2f',
         fontWeight: '700',
         cursor: 'pointer',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+        boxShadow: '0 4px 6px rgba(0,0,0,0.05)'   
       }}
       onMouseOver={(e) => e.currentTarget.style.background = '#d9ae36'}
       onMouseOut={(e) => e.currentTarget.style.background = '#EBBF41'}
       >
         View Live Bus Timetable
       </button>
+      </Link>
+
+
       <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '12px', paddingLeft: '5px' }}>
         Check daily and weekly schedules or find your route<br/> instantly using our smart route system.
       </p>
     </div>
 
     {/* Right Side: Map */}
-    <div style={{ flex: 1.2, position: 'relative' }}>
-      <img 
-        src="/map.png" 
-        alt="Pettah Map" 
-        style={{ width: '100%', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }} 
-      />
+<div style={{ flex: 1.2, position: 'relative' }}>
+  {/* Open in Maps Button */}
+  <a 
+    href="https://www.google.com/maps/place/Pettah+CTB+bus+stand/@6.9336336,79.8485523,15.8z/data=!4m6!3m5!1s0x3ae2590051d7c54b:0x9c88d1d9c9a25b2a!8m2!3d6.9351176!4d79.8543603!16s%2Fg%2F11wwytbh94?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{
+      position: 'absolute',
+      top: '20px',
+      right: '20px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      background: 'rgba(0, 0, 0, 0.65)', // Dark translucent background
+      color: '#FFFFFF',
+      padding: '4px 15px',
+      borderRadius: '20px',
+      textDecoration: 'none',
+      fontSize: '0.9rem',
+      fontWeight: '600',
+      backdropFilter: 'blur(4px)', // Glassmorphism effect
+      transition: 'all 0.2s ease',
+      zIndex: 10,
+      border: '1px solid rgba(255, 255, 255, 0.1)'
+    }}
+    onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)'}
+    onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.65)'}
+  >
+    {/* Google Maps Icon - Simple SVG version */}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#089C13"/>
+    </svg>
+    Open in Maps
+  </a>
+
+  <img 
+    src="/map.png" 
+    alt="Pettah Map" 
+    style={{ 
+      width: '100%', 
+      display: 'block',
+      borderRadius: '15px', 
+      boxShadow: '0 10px 30px rgba(0,0,0,0.08)' 
+    }} 
+  />
+</div>
     </div>
-  </div>
+
+
 </section>
 
 {/* Hotlines & Help Desk Section */}
@@ -462,4 +541,23 @@ const footerDetailStyle: React.CSSProperties = {
   fontSize: '0.8rem',
   color: '#333',
   margin: '2px 0'
+};
+
+const navBtnStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  background: 'rgba(255, 255, 255, 0.8)',
+  border: 'none',
+  width: '45px',
+  height: '45px',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  fontSize: '1.5rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+  zIndex: 2,
+  transition: 'background 0.2s ease'
 };
