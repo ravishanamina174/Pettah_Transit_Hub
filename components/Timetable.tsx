@@ -54,7 +54,7 @@ const TimetableCarousel: React.FC = () => {
     <div style={s.page}>
       {/* 1. Header with Corridor Name */}
       <div style={s.headerContainer}>
-        <h1 style={s.title}>{currentCorridor}</h1>
+        <h1 style={s.title}>{formatName(currentCorridor)}</h1>
         <div style={s.btnGroup}>
           <button onClick={prev} style={s.navBtn}>BACK</button>
           <button onClick={next} style={s.navBtn}>NEXT</button>
