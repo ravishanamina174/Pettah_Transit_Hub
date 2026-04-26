@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import './Navbar.css'; // Import the hover styles
 
 const Navbar = () => {
@@ -59,43 +60,21 @@ const Navbar = () => {
 
         {/* Right Side: Account */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
-          <Link 
-  href="#" 
-  style={{ 
-    color: '#000', 
-    textDecoration: 'none', 
-    fontSize: '0.85rem',
-    borderBottom: '1px solid #aaa',
-    transition: 'color 0.2s ease, border-color 0.2s ease' // Smooth transition
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.color = '#777';
-    e.currentTarget.style.borderBottomColor = '#777';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.color = '#000';
-    e.currentTarget.style.borderBottomColor = '#aaa';
-  }}
->
-  Create an account
-</Link>
-          <div style={{
-            width: '26px',
-            height: '26px',
-            borderRadius: '50%',
-            border: '0.5px solid #000',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
-            cursor: 'pointer' // Ensures image doesn't bleed out of circle
-          }}>
-            <img 
-              src="/user.png" 
-              alt="User profile" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-            />
-          </div>
+          <Show when="signed-out">
+            <SignInButton mode="modal">
+              <button style={{ background: 'transparent', color: '#000', border: 'none', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                Sign In
+              </button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-2 sm:px-5 cursor-pointer">
+                Sign Up
+              </button>
+            </SignUpButton>
+          </Show>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
         </div>
       </nav>
     </div>

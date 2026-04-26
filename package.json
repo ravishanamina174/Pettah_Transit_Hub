@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1036.0",
-    "@clerk/nextjs": "^7.2.3",
+    "@clerk/nextjs": "^7.2.7",
     "dotenv": "^17.4.2",
     "mongodb": "^7.2.0",
     "mongoose": "^9.5.0",
