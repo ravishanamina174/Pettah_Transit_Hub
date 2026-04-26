@@ -1,3 +1,4 @@
+![Uploading Screenshot 2026-04-26 at 2.46.03 PM.png…]()
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
