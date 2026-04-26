@@ -67,7 +67,7 @@ const Navbar = () => {
               </button>
             </SignInButton>
             <SignUpButton mode="modal">
-              <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-2 sm:px-5 cursor-pointer">
+              <button className="bg-black text-white rounded-full font-extralight text-sm lg:text-sm sm:text-base lg:h-8.5 lg:px-4 sm:h-8 sm:px-3 cursor-pointer">
                 Sign Up
               </button>
             </SignUpButton>
