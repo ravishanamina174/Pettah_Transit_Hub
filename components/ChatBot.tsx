@@ -146,7 +146,7 @@ const ChatBot = () => {
                   <div key={msg.id} className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
                     <div className="flex items-start gap-3 max-w-[80%]">
                       {msg.sender === 'ai' && <img src="/chatbotAI.png" alt="Bot" className="h-6 w-6 mt-1" />}
-                      <div className={`rounded-2xl px-5 py-3 text-sm shadow-sm ${msg.sender === 'user' ? 'bg-[#3D3D3D] text-white rounded-tr-none' : 'bg-white border border-gray-100 text-gray-700 rounded-tl-none'}`}>
+                      <div className={`rounded-2xl px-5 py-3 text-sm shadow-sm ${msg.sender === 'user' ? 'bg-[#3D3D3D] text-white rounded-tr-lg' : 'bg-white border border-gray-100 text-gray-700 rounded-tl-lg'}`}>
                         {msg.text}
                       </div>
                     </div>
