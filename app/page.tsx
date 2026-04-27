@@ -3,6 +3,8 @@ import Link from 'next/dist/client/link';
 import Navbar from '../components/Navbar';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ChatButton from '@/components/ChatButton';
+
 
 export default function Home() {
   const router = useRouter();
@@ -24,6 +26,9 @@ export default function Home() {
     <main>
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
+      </div>
+      <div>
+        <ChatButton/>
       </div>
 
       <section style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { useState } from 'react';
+import ChatButton from '@/components/ChatButton';
 
 export default function OurServices() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -42,6 +43,9 @@ export default function OurServices() {
       {/* Navbar */}
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
+      </div>
+      <div>
+        <ChatButton/>
       </div>
 
       {/* SECTION 1: HERO + INTRO */}
