@@ -159,7 +159,7 @@ export default function OurServices() {
                     position: 'absolute',
                     bottom: '0',
                     left: '2px',
-                    width: '42%',
+                    width: '95%',
                     borderBottomWidth: '1.5px',
                     borderBottomStyle: 'solid',
                     borderBottomColor: '#111',
@@ -408,7 +408,7 @@ export default function OurServices() {
 
             {/* Card 2: Gami Seriya */}
             <ServiceCard
-              icon="🌳"
+              icon="🏡"
               title="Gami Seriya"
               description="Rural connectivity connecting village communities to main transport hub with affordable fares"
               buttonText="Check Schedule"
@@ -416,7 +416,7 @@ export default function OurServices() {
 
             {/* Card 3: Nisi Seriya */}
             <ServiceCard
-              icon="🌙"
+              icon="🌛"
               title="Nisi Seriya"
               description="Night service with GPS tracking and enhanced security for late-night commuters"
               buttonText="Check Schedule"
@@ -776,7 +776,7 @@ export default function OurServices() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
-              background: '#EBBF41',
+              background: '#FAD5A5',
               color: '#000',
               border: 'none',
               borderRadius: '50px',
@@ -788,12 +788,12 @@ export default function OurServices() {
               boxShadow: '0 4px 12px rgba(235, 191, 65, 0.2)'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#d9ae36';
+              e.currentTarget.style.background = '#E0B277';
               e.currentTarget.style.boxShadow = '0 8px 20px rgba(235, 191, 65, 0.3)';
               e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#EBBF41';
+              e.currentTarget.style.background = '#FAD5A5';
               e.currentTarget.style.boxShadow = '0 4px 12px rgba(235, 191, 65, 0.2)';
               e.currentTarget.style.transform = 'translateY(0)';
             }}>
@@ -825,7 +825,7 @@ function ServiceCard({
     <div
       style={{
         border: '1px solid #E5E7EB',
-        borderRadius: '10px',
+        borderRadius: '14px',
         padding: '28px',
         background: '#FFFFFF',
         display: 'flex',
@@ -883,8 +883,8 @@ function ServiceCard({
             textAlign: 'center'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#05A305';
-            e.currentTarget.style.borderColor = '#008000';
+            e.currentTarget.style.background = '#E0B277';
+            e.currentTarget.style.borderColor = '#FAD5A5';
             e.currentTarget.style.color = '#fff';
           }}
           onMouseLeave={(e) => {

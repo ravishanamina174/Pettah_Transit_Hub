@@ -289,7 +289,7 @@ const cardStyle: React.CSSProperties = {
 const titleStyle: React.CSSProperties = { fontSize: '1.1rem', fontWeight: '800', margin: 0, color: '#333' };
 const labelStyle: React.CSSProperties = { fontSize: '0.65rem', fontWeight: '700', color: '#999', letterSpacing: '0.5px' };
 const inputStyle: React.CSSProperties = { width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #EEE', fontSize: '0.9rem', outline: 'none' };
-const yellowBtnStyle: React.CSSProperties = { background: '#EBBF41', border: 'none', padding: '14px', borderRadius: '12px', fontWeight: '700', cursor: 'pointer', transition: '0.2s' };
+const yellowBtnStyle: React.CSSProperties = { background: '#E0B277', border: 'none', padding: '14px', borderRadius: '12px', fontWeight: '700', cursor: 'pointer', transition: '0.2s' };
 
 const busRowStyle: React.CSSProperties = { 
   background: '#FFF', padding: '15px', borderRadius: '12px', border: '1px solid #EEE', 
