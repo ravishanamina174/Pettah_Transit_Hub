@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
-import './Navbar.css'; // Import the hover styles
+import './Navbar.css'; 
 
 const Navbar = () => {
   return (
@@ -16,7 +16,8 @@ const Navbar = () => {
         width: '100%',
         maxWidth: '1200px',
         height: '60px',
-        boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+        boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+        position: 'relative' // Added for absolute positioning of dropdown
       }}>
         
         {/* Left Side: Logo & Title */}
@@ -26,13 +27,13 @@ const Navbar = () => {
             alt="Logo" 
             style={{ width: '60px', height: '60px', objectFit: 'contain' }} 
           />
-          <div style={{ display: 'flex', flexDirection: 'column',marginTop: '4px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', marginTop: '4px' }}>
             <span style={{ fontWeight: '800', fontSize: '1rem', color: '#000', lineHeight: '1' }}>Pettah</span>
             <span style={{ fontSize: '0.75rem', color: '#777' }}>Transit Hub</span>
           </div>
         </Link>
 
-        {/* Center: Navigation Links with Hover Class */}
+        {/* Center: Navigation Links */}
         <ul style={{
           display: 'flex',
           gap: '15px', 
@@ -46,11 +47,18 @@ const Navbar = () => {
               Seat Booking 
             </Link>
           </li>
-          <li>
-            <Link href="/timetable" className="nav-link">
-              Bus Timetable
-            </Link>
+
+          {/* Dropdown Menu Item */}
+          <li className="dropdown">
+            <span className="nav-link" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}>
+              Bus Timetable <span style={{ fontSize: '0.6rem' }}>▼</span>
+            </span>
+            <div className="dropdown-menu">
+              <Link href="/timetable" className="dropdown-item">Normal Bus Timetable</Link>
+              <Link href="/timetable/AC" className="dropdown-item">AC Bus Timetable</Link>
+            </div>
           </li>
+
           <li>
             <Link href="/our-services" className="nav-link">
               Our Services 

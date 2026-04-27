@@ -1,4 +1,6 @@
 /* Navbar.css */
+
+/* 1. Base Navigation Links */
 .nav-link {
   color: #212121;
   text-decoration: none;
@@ -10,6 +12,81 @@
 }
 
 .nav-link:hover {
-  background-color: #e2fce6; /* Light green hover */
-  color: #15803d; /* Darker green text on hover */
+  background-color: #e2fce6; 
+  color: #15803d; 
+}
+
+/* 2. Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 3. The Menu (Hidden by default) */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  min-width: 220px; /* Slightly wider for better text fit */
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  border: 0.5px solid #898989;
+  border-radius: 12px;
+  padding: 8px 0;
+  margin-top: 10px; /* This creates the visual gap */
+}
+
+/* THE "INVISIBLE BRIDGE" FIX:
+   This pseudo-element fills the 10px gap so the hover state 
+   doesn't break when moving from the link to the menu. */
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -15px; /* Reaches up to touch the nav-link */
+  left: 0;
+  width: 100%;
+  height: 15px; 
+  background: transparent;
+}
+
+/* 4. Interaction Logic */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rotate the arrow (span) when hovering the parent dropdown */
+.dropdown:hover .nav-link span {
+  display: inline-block; /* Ensure transform works */
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* 5. Dropdown Menu Items */
+.dropdown-item {
+  color: #212121;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #e2fce6;
+  color: #15803d;
+}
+
+/* Optional: Round the top and bottom corners of the hover state inside the menu */
+.dropdown-item:first-child:hover {
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+
+.dropdown-item:last-child:hover {
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
 }
