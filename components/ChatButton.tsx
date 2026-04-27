@@ -6,21 +6,39 @@ export default function ChatButton() {
       <button 
         className="
           flex items-center gap-3 
-          bg-[#E0B277] hover:bg-[#c2a485] 
+          cursor-pointer
+          
+          /* 1. Base Glass Effect */
+          bg-[#E0B277]/50 
+          backdrop-blur-lg
+          
+          /* 2. Border & Strong Visible Shadow */
+          border border-white/20 border-r-0
+          
+          
+          /* 3. Text & Sizing */
           text-black font-bold 
-          py-1.5 px-2.5 
+          py-2 px-4 
           rounded-l-full  
+          
+          /* 4. Expansion & Hover Effects */
           transition-all duration-300 ease-in-out
+          /* This increases the width by adding padding on the left */
+          hover:pl-7 
+          hover:bg-[#c2a485] 
+          
+          
+          active:scale-95
           group
         "
       >
         {/* Chatbot Icon */}
-        <div className="w-7 h-7">
+        <div className="w-7 h-7 group-hover:scale-110 transition-transform duration-300">
           <svg 
             viewBox="0 0 24 24" 
             fill="none" 
             stroke="currentColor" 
-            strokeWidth="1.5" 
+            strokeWidth="2" 
             strokeLinecap="round" 
             strokeLinejoin="round"
           >
@@ -34,7 +52,7 @@ export default function ChatButton() {
         </div>
 
         {/* Text */}
-        <span className="text-1xl tracking-tight">Ask AI</span>
+        <span className="text-md tracking-tight whitespace-nowrap">Ask AI</span>
       </button>
     </Link>
   );
