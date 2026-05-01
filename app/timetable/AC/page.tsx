@@ -6,7 +6,7 @@ import ACTimetable from '@/components/ACTimetable';
 
 export default function TimetablePage() {
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>

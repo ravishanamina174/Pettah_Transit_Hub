@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { useState } from 'react';
 import './Navbar.css'; 
 
 const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div style={{ padding: '10px 20px', display: 'flex', justifyContent: 'center' }}>
-      <nav style={{
+      <nav className="navbar-shell" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -17,11 +20,11 @@ const Navbar = () => {
         maxWidth: '1200px',
         height: '60px',
         boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
-        position: 'relative' // Added for absolute positioning of dropdown
+        position: 'relative'
       }}>
         
         {/* Left Side: Logo & Title */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }} onClick={() => setMobileMenuOpen(false)}>
           <img 
             src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/bus-logo.png" 
             alt="Logo" 
@@ -34,7 +37,7 @@ const Navbar = () => {
         </Link>
 
         {/* Center: Navigation Links */}
-        <ul style={{
+        <ul className="navbar-desktop-menu" style={{
           display: 'flex',
           gap: '15px', 
           listStyle: 'none',
@@ -67,7 +70,7 @@ const Navbar = () => {
         </ul>
 
         {/* Right Side: Account */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+        <div className="navbar-desktop-auth" style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
           <Show when="signed-out">
             <SignInButton mode="modal">
               <button style={{ background: 'transparent', color: '#000', border: 'none', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>
@@ -84,7 +87,49 @@ const Navbar = () => {
             <UserButton />
           </Show>
         </div>
+
+        <button
+          className="navbar-mobile-toggle"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
       </nav>
+
+      {mobileMenuOpen && (
+        <div className="navbar-mobile-panel">
+          <Link href="/booking" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            Seat Booking
+          </Link>
+          <Link href="/timetable" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            Normal Bus Timetable
+          </Link>
+          <Link href="/timetable/AC" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            AC Bus Timetable
+          </Link>
+          <Link href="/our-services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            Our Services
+          </Link>
+          <div className="navbar-mobile-auth">
+            <Show when="signed-out">
+              <SignInButton mode="modal">
+                <button style={{ background: 'transparent', color: '#000', border: 'none', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="bg-black text-white rounded-full font-extralight text-sm px-4 h-9 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </Show>
+            <Show when="signed-in">
+              <UserButton />
+            </Show>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

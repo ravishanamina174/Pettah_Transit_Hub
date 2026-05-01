@@ -59,20 +59,20 @@ export default function BusBookingPage() {
 
   return (
     
-    <main style={{ background: '#F9F9F9', minHeight: '100vh', paddingBottom: '60px', fontFamily: 'sans-serif' }}>
+    <main className="booking-main" style={{ background: '#F9F9F9', minHeight: '100vh', paddingBottom: '60px', fontFamily: 'sans-serif' }}>
       {/* Header */}
       <div style={{ textAlign: 'center', padding: '40px 20px' }}>
         <h1 style={{ fontSize: '2.4rem', fontWeight: '800', margin: '0 0 8px 0', color: '#1a1a1a' }}>Book Your Journey</h1>
         <p style={{ color: '#666' }}>Secure your seat to {selectedDestination} in just a few clicks.</p>
       </div>
 
-      <div style={containerStyle}>
+      <div className="booking-container" style={containerStyle}>
         
         {/* Left Column: Search & Results */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={cardStyle}>
+          <div className="booking-card" style={cardStyle}>
             <h3 style={titleStyle}>Search Routes</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '15px' }}>
+            <div className="booking-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '15px' }}>
               <InputGroup label="FROM" value="Colombo" readOnly bg="#FDF7E7" />
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <label style={labelStyle}>TO</label>
@@ -120,7 +120,7 @@ export default function BusBookingPage() {
         </div>
 
         {/* Right Column: Seat Selection */}
-        <div style={cardStyle}>
+        <div className="booking-card" style={cardStyle}>
           <h3 style={titleStyle}>Choose Seat</h3>
           <div style={legendContainer}>
             <Legend dot="#fff" border="#ccc" text="Avail" />
@@ -183,7 +183,7 @@ export default function BusBookingPage() {
                    <label style={stripeLabel}>Card Number</label>
                    <input type="text" placeholder="1234 5678 9123 0000" style={stripeInput} />
                 </div>
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px'}}>
+            <div className="booking-payment-grid" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px'}}>
                   <div style={stripeInputBox}>
                     <label style={stripeLabel}>Expiry</label>
                     <input type="text" placeholder="MM / YY" style={stripeInput} />

@@ -5,7 +5,7 @@ import BusBooking  from '@/components/BusBooking'; // Adjust path if you moved t
 
 export default function BusBookingPage() {
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>

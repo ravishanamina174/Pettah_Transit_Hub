@@ -99,11 +99,11 @@ const s: Record<string, React.CSSProperties> = {
   btnGroup: { display: 'flex', gap: '10px' },
   navBtn: { padding: '8px 20px', background: '#363636', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.8rem' },
   
-  tableBorder: { width: '100%', maxWidth: '800px', border: '1px solid #ccc', padding: '25px' },
-  labelGrid: { display: 'grid', gridTemplateColumns: '130px 1fr 130px 130px', textAlign: 'center', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '15px' },
+  tableBorder: { width: '100%', maxWidth: '800px', border: '1px solid #ccc', padding: '25px', overflowX: 'auto' },
+  labelGrid: { display: 'grid', gridTemplateColumns: '130px 1fr 130px 130px', textAlign: 'center', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '15px', minWidth: '620px' },
   
   innerWrapper: { border: '1px solid #666', borderRadius: '4px', overflow: 'hidden' },
-  row: { display: 'grid', gridTemplateColumns: '130px 1fr 130px 130px', borderBottom: '1px solid #ccc', minHeight: '110px' },
+  row: { display: 'grid', gridTemplateColumns: '130px 1fr 130px 130px', borderBottom: '1px solid #ccc', minHeight: '110px', minWidth: '620px' },
   
   routeBox: { background: '#444', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.2rem', fontWeight: '800' },
   destCell: { padding: '10px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRight: '1px solid #ccc' },

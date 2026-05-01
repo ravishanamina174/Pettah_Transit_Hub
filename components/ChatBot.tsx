@@ -97,11 +97,11 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="flex h-screen w-full bg-[#F8F9FA] p-8 font-sans text-[#333] overflow-hidden">
-      <div className="flex w-full h-full scale-[0.9] origin-top transition-transform duration-300">
+    <div className="flex h-dvh w-screen overflow-hidden bg-[#F8F9FA] p-4 font-sans text-[#333] md:h-screen md:p-8">
+      <div className="flex h-full w-full flex-col gap-4 transition-transform duration-300 lg:flex-row lg:gap-0 lg:scale-[0.9] lg:origin-top">
         
         {/* LEFT SIDEBAR (No changes needed) */}
-        <div className="flex w-64 flex-col gap-6 mr-8 shrink-0">
+        <div className="hidden w-full shrink-0 flex-col gap-6 lg:mr-8 lg:flex lg:w-64">
           <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4 text-[#4A4A4A] font-semibold">
               <Sparkles size={18} className="text-green-500" />
@@ -128,23 +128,23 @@ const ChatBot = () => {
         </div>
 
         {/* MAIN CHAT AREA */}
-        <div className="flex flex-1 flex-col overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-sm">
+        <div className="flex flex-1 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm md:rounded-[32px]">
           
-          <div className="flex items-center justify-between border-b border-gray-100 p-5 px-8">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between border-b border-gray-100 p-4 md:p-5 md:px-8">
+            <div className="flex items-center gap-3 md:gap-4">
               <img src="/chatbotAI.png" alt="Bot" className="h-10 w-10 object-contain" />
               <div>
                 <h2 className="font-bold text-gray-800 text-base">AI Route Assistant</h2>
                 <p className="text-xs text-gray-500">Real-time Pettah CTB Information</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-green-600">
+            <div className="hidden items-center gap-2 text-sm font-medium text-green-600 sm:flex">
               <Sparkles size={16} />
               <span>Live System</span>
             </div>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto bg-[#FBFBFC] p-8">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto bg-[#FBFBFC] p-4 md:p-8">
             {messages.length === 0 ? (
               <div className="flex h-full flex-col items-center justify-center text-center">
                 <div className="relative mb-6">
@@ -152,19 +152,19 @@ const ChatBot = () => {
                   <img src="/busBlue.png" alt="Bus" className="relative z-10 h-20 w-20" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-gray-900">Ask about Pettah bus schedules</h3>
-                <p className="max-w-sm text-sm text-gray-500">I am connected to the CTB live database. How can I help you today?</p>
+                <p className="max-w-sm px-2 text-sm text-gray-500 md:px-0">I am connected to the CTB live database. How can I help you today?</p>
               </div>
             ) : (
               <div className="space-y-6">
                 {messages.map((msg) => (
                   <div key={msg.id} className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
-                    <div className="flex items-start gap-3 max-w-[80%]">
+                    <div className="flex max-w-[92%] items-start gap-2 md:max-w-[80%] md:gap-3">
                       {msg.sender === 'ai' && <img src="/chatbotAI.png" alt="Bot" className="h-6 w-6 mt-1" />}
                       <div className={`rounded-2xl px-5 py-3 text-sm shadow-sm ${msg.sender === 'user' ? 'bg-[#3D3D3D] text-white rounded-tr-lg' : 'bg-white border border-gray-100 text-gray-700 rounded-tl-lg'}`}>
                         {msg.text}
                       </div>
                     </div>
-                    <span className="mt-1 text-[10px] text-gray-400 px-10">{msg.time}</span>
+                    <span className="mt-1 px-4 text-[10px] text-gray-400 md:px-10">{msg.time}</span>
                   </div>
                 ))}
                 {isTyping && (
@@ -183,7 +183,7 @@ const ChatBot = () => {
             )}
           </div>
 
-          <div className="p-6 pt-2 bg-[#FBFBFC]">
+          <div className="bg-[#FBFBFC] p-4 pt-2 md:p-6 md:pt-2">
             <div className="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
               {defaultSuggestions.map((text, idx) => (
                 <button 
@@ -197,7 +197,7 @@ const ChatBot = () => {
               ))}
             </div>
 
-            <div className="relative flex items-center rounded-[24px] border border-gray-200 bg-white p-2 px-4 shadow-lg focus-within:ring-2 focus-within:ring-green-100">
+            <div className="relative flex items-center rounded-[24px] border border-gray-200 bg-white p-2 px-3 shadow-lg focus-within:ring-2 focus-within:ring-green-100 md:px-4">
               <input
                 type="text"
                 value={inputValue}

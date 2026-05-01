@@ -12,16 +12,123 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-hotline-mobile-list {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .home-hero-card,
+  .services-hero-card {
+    border-radius: 20px !important;
+    gap: 16px !important;
+    min-height: 0 !important;
+    padding: 12px !important;
+  }
+
+  .home-hero-carousel,
+  .services-hero-carousel {
+    flex: 1 1 100% !important;
+    height: 280px !important;
+  }
+
+  .home-hero-content,
+  .services-hero-content {
+    flex: 1 1 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .home-features-row {
+    gap: 24px !important;
+  }
+
+  .home-location-grid {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .home-hotline-section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .home-hotline-visual {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+
+  .home-hotline-bubble {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    white-space: normal !important;
+  }
+
+  .home-hotline-mobile-list {
+    margin-top: 16px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: #333;
+  }
+
+  .home-destination-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .home-footer-top,
+  .home-footer-links {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    margin-top: 0 !important;
+  }
+
+  .home-footer-info {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-connectivity-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .booking-container {
+    grid-template-columns: 1fr !important;
+    padding: 0 12px !important;
+    gap: 16px !important;
+  }
+
+  .booking-card {
+    padding: 16px !important;
+  }
+
+  .booking-form-grid,
+  .booking-payment-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 

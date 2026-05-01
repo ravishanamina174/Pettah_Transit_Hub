@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ChatButton() {
   return (
-    <Link href="/askAI" className="fixed bottom-20 right-0 z-50">
+    <Link href="/askAI" className="fixed bottom-4 right-4 z-50 md:bottom-20 md:right-0">
       <button 
         className="
           flex items-center gap-3 

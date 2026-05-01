@@ -23,7 +23,7 @@ export default function Home() {
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>
@@ -31,14 +31,15 @@ export default function Home() {
         <ChatButton/>
       </div>
 
-      <section style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
-      <div style={{
+      <section className="home-hero-section" style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
+      <div className="home-hero-card" style={{
         width: '100%',
         maxWidth: '1190px',
         border: '1px solid #B5B4B3',
         borderRadius: '30px',
         padding: '13px',
         display: 'flex',
+        flexWrap: 'wrap',
         gap: '36px',
         alignItems: 'center',
         background: '#FFFFFF',
@@ -46,7 +47,7 @@ export default function Home() {
       }}>
 
         {/* Carousel Section */}
-        <div style={{ 
+        <div className="home-hero-carousel" style={{ 
           flex: 1.6, 
           position: 'relative', 
           height: '475px', 
@@ -89,7 +90,7 @@ export default function Home() {
         </div>
 
         {/* Text Content Section */}
-        <div style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
+        <div className="home-hero-content" style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
           <h1 style={{ fontSize: '2.6rem', fontWeight: '800', lineHeight: '1.15', margin: 0, color: '#000', letterSpacing: '-0.5px' }}>
             Plan your journey from Pettah, Colombo's main transport hub
           </h1>
@@ -152,8 +153,9 @@ export default function Home() {
       </div>
     </section> 
     
-  <div style={{ 
+  <div className="home-features-row" style={{ 
   display: 'flex', 
+  flexWrap: 'wrap',
   justifyContent: 'center', 
   alignItems: 'flex-start', 
   maxWidth: '1190px', 
@@ -196,8 +198,8 @@ export default function Home() {
   </div>
 
   {/* Location & Connectivity Section */}
-<section style={{ padding: '60px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
-  <div style={{
+<section className="home-location-section" style={{ padding: '60px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
+  <div className="home-location-grid" style={{
     width: '100%',
     maxWidth: '1190px',
     display: 'flex',
@@ -255,7 +257,7 @@ export default function Home() {
     </div>
 
     {/* Right Side: Map */}
-<div style={{ flex: 1.2, position: 'relative' }}>
+<div className="home-map-wrap" style={{ flex: 1.2, position: 'relative' }}>
   {/* Open in Maps Button */}
   <a 
     href="https://www.google.com/maps/place/Pettah+CTB+bus+stand/@6.9336336,79.8485523,15.8z/data=!4m6!3m5!1s0x3ae2590051d7c54b:0x9c88d1d9c9a25b2a!8m2!3d6.9351176!4d79.8543603!16s%2Fg%2F11wwytbh94?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" 
@@ -307,10 +309,10 @@ export default function Home() {
 </section>
 
 {/* Hotlines & Help Desk Section */}
-<section style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#FFFFFF' }}>
+<section className="home-hotline-section" style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#FFFFFF' }}>
   <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '60px' }}>Hotlines & help desk</h2>
   
-  <div style={{ 
+  <div className="home-hotline-visual" style={{ 
     position: 'relative', 
     width: '100%', 
     maxWidth: '900px', 
@@ -327,31 +329,31 @@ export default function Home() {
     />
 
     {/* Bubble: SLTB Contact (Top) */}
-    <div style={{ ...bubbleStyle, top: '0', left: '50%', transform: 'translateX(-50%)' }}>
+    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '0', left: '50%', transform: 'translateX(-50%)' }}>
       <span style={{ fontWeight: '700' }}>SLTB contact</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>011 755 5555</span>
     </div>
 
     {/* Bubble: Suwa Seriya (Mid-Left) */}
-    <div style={{ ...bubbleStyle, top: '35%', left: '0' }}>
+    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '35%', left: '0' }}>
       <span style={{ fontWeight: '700' }}>Suwa Seriya</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>1990</span>
     </div>
 
     {/* Bubble: Hotline (Mid-Right) */}
-    <div style={{ ...bubbleStyle, top: '40%', right: '0' }}>
+    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '40%', right: '0' }}>
       <span style={{ fontWeight: '700' }}>Hotline</span> 
       <span style={{ color: '#D32F2F', marginLeft: '15px' }}>1315</span>
     </div>
 
     {/* Bubble: Passenger Feedback (Bottom-Left) */}
-    <div style={{ ...bubbleStyle, bottom: '15%', left: '-20px' }}>
+    <div className="home-hotline-bubble" style={{ ...bubbleStyle, bottom: '15%', left: '-20px' }}>
       <span style={{ fontWeight: '700' }}>Passenger Feedback</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>1958</span>
     </div>
 
     {/* Bubble: Seat Booking (Bottom-Right) */}
-    <div style={{ ...bubbleStyle, bottom: '15%', right: '-10px' }}>
+    <div className="home-hotline-bubble" style={{ ...bubbleStyle, bottom: '15%', right: '-10px' }}>
       <span style={{ fontWeight: '700' }}>Seat booking</span> 
       <span style={{ color: '#666', marginLeft: '15px', textDecoration: 'underline' }}>1315.lk</span>
     </div>
@@ -382,7 +384,7 @@ export default function Home() {
     </div>
 
     {/* Destinations Grid */}
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
+    <div className="home-destination-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
       <div style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>Western / Colombo suburbs</h4>
         <ul style={listStyle}>
@@ -430,10 +432,10 @@ export default function Home() {
 {/* Footer Section */}
 <footer style={{ padding: '40px 20px 20px 20px', background: '#FFFFFF', display: 'flex', justifyContent: 'center' }}>
   <div style={{ maxWidth: '1190px', width: '100%' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+    <div className="home-footer-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
       
       {/* Footer Links */}
-      <div style={{ display: 'flex', gap: '80px' , marginTop: '35px'}}>
+      <div className="home-footer-links" style={{ display: 'flex', gap: '80px' , marginTop: '35px'}}>
         <div style={footerLinkColStyle}>
           <a href="#" style={footerLinkStyle}>Login</a>
           <a href="#" style={footerLinkStyle}>Send Ticket</a>
@@ -448,7 +450,7 @@ export default function Home() {
       </div>
 
       {/* Footer Info & Logo */}
-      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+      <div className="home-footer-info" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <img src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/sltb.png" alt="SLTB Logo" style={{ width: '120px', marginBottom: '15px' }} />
         <p style={{ fontWeight: '800', margin: '0 0 5px 0', fontSize: '0.9rem' }}>Sri Lanka Transport Board</p>
         <p style={footerDetailStyle}>No. 200, Kirula Road, Colombo 5</p>

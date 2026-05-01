@@ -90,3 +90,56 @@
   border-bottom-left-radius: 11px;
   border-bottom-right-radius: 11px;
 }
+
+.navbar-mobile-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  color: #212121;
+  cursor: pointer;
+}
+
+.navbar-mobile-panel {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .navbar-shell {
+    height: auto !important;
+    min-height: 60px;
+    padding: 10px 16px !important;
+  }
+
+  .navbar-desktop-menu,
+  .navbar-desktop-auth {
+    display: none !important;
+  }
+
+  .navbar-mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-mobile-panel {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 10px;
+    border: 0.5px solid #898989;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navbar-mobile-auth {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}

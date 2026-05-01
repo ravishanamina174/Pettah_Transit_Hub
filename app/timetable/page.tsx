@@ -5,7 +5,7 @@ import Timetable from '@/components/Timetable'; // Adjust path if you moved the 
 
 export default function TimetablePage() {
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>

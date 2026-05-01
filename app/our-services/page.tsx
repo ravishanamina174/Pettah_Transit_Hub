@@ -39,7 +39,7 @@ export default function OurServices() {
   };
 
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
       {/* Navbar */}
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
@@ -49,21 +49,22 @@ export default function OurServices() {
       </div>
 
       {/* SECTION 1: HERO + INTRO */}
-      <section style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
-        <div style={{
+      <section className="services-hero-section" style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
+        <div className="services-hero-card" style={{
           width: '100%',
           maxWidth: '1190px',
           border: '1px solid #B5B4B3',
           borderRadius: '30px',
           padding: '13px',
           display: 'flex',
+          flexWrap: 'wrap',
           gap: '36px',
           alignItems: 'center',
           background: '#FFFFFF',
           minHeight: '500px'
         }}>
           {/* Carousel Section */}
-          <div style={{
+          <div className="services-hero-carousel" style={{
             flex: 1.6,
             position: 'relative',
             height: '475px',
@@ -108,7 +109,7 @@ export default function OurServices() {
           </div>
 
           {/* Text Content Section */}
-          <div style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
+          <div className="services-hero-content" style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
             <h1 style={{ fontSize: '2.6rem', fontWeight: '800', lineHeight: '1.15', margin: 0, color: '#000', letterSpacing: '-0.5px' }}>
               The Pettah Hub Heritage & Transit
             </h1>
@@ -379,7 +380,7 @@ export default function OurServices() {
       </section>
 
       {/* SECTION 3: SPECIALIZED TRANSIT SERVICES */}
-      <section style={{ padding: '60px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
+      <section className="services-cards-section" style={{ padding: '60px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
         <div style={{
           width: '100%',
           maxWidth: '1190px',
@@ -397,7 +398,7 @@ export default function OurServices() {
           </h2>
 
           {/* Cards Grid */}
-          <div style={{
+          <div className="services-cards-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '28px'
@@ -538,7 +539,7 @@ export default function OurServices() {
       </section> */}
 
       {/* SECTION 5: STRATEGIC CONNECTIVITY */}
-      <section style={{ padding: '80px 20px', display: 'flex', justifyContent: 'center' }}>
+      <section className="services-connectivity-section" style={{ padding: '80px 20px', display: 'flex', justifyContent: 'center' }}>
         <div style={{
           width: '100%',
           maxWidth: '900px',
@@ -602,7 +603,7 @@ export default function OurServices() {
               </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{
+                <div className="services-connectivity-item" style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -632,7 +633,7 @@ export default function OurServices() {
                   </span>
                 </div>
 
-                <div style={{
+                <div className="services-connectivity-item" style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',

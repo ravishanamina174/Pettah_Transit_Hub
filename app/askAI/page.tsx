@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 
 export default function BusBookingPage() {
   return (
-    <main>
+    <main className="w-screen min-h-screen bg-white">
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>
