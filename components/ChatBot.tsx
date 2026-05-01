@@ -21,7 +21,7 @@ const ChatBot = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Configuration: Change this to your server URL if different
-  const API_URL = "http://localhost:8000/api/query"; 
+  const API_URL = "https://pettah-hub-backend.onrender.com/api/query"; 
 
   useEffect(() => {
     if (scrollRef.current) {
