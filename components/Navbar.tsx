@@ -23,18 +23,30 @@ const Navbar = () => {
         position: 'relative'
       }}>
         
-        {/* Left Side: Logo & Title */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }} onClick={() => setMobileMenuOpen(false)}>
-          <img 
-            src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/bus-logo.png" 
-            alt="Logo" 
-            style={{ width: '60px', height: '60px', objectFit: 'contain' }} 
-          />
-          <div style={{ display: 'flex', flexDirection: 'column', marginTop: '4px' }}>
-            <span style={{ fontWeight: '800', fontSize: '1rem', color: '#000', lineHeight: '1' }}>Pettah</span>
-            <span style={{ fontSize: '0.75rem', color: '#777' }}>Transit Hub</span>
-          </div>
-        </Link>
+        {/* Top Row: Logo & Toggle */}
+        <div className="navbar-top-row">
+          {/* Left Side: Logo & Title */}
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }} onClick={() => setMobileMenuOpen(false)}>
+            <img 
+              src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/bus-logo.png" 
+              alt="Logo" 
+              style={{ width: '60px', height: '60px', objectFit: 'contain' }} 
+            />
+            <div style={{ display: 'flex', flexDirection: 'column', marginTop: '4px' }}>
+              <span style={{ fontWeight: '800', fontSize: '1rem', color: '#000', lineHeight: '1' }}>Pettah</span>
+              <span style={{ fontSize: '0.75rem', color: '#777' }}>Transit Hub</span>
+            </div>
+          </Link>
+
+          {/* Mobile Toggle */}
+          <button
+            className="navbar-mobile-toggle"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
 
         {/* Center: Navigation Links */}
         <ul className="navbar-desktop-menu" style={{
@@ -88,48 +100,41 @@ const Navbar = () => {
           </Show>
         </div>
 
-        <button
-          className="navbar-mobile-toggle"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
-          aria-label="Toggle mobile menu"
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
-      </nav>
-
-      {mobileMenuOpen && (
-        <div className="navbar-mobile-panel">
-          <Link href="/booking" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
-            Seat Booking
-          </Link>
-          <Link href="/timetable" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
-            Normal Bus Timetable
-          </Link>
-          <Link href="/timetable/AC" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
-            AC Bus Timetable
-          </Link>
-          <Link href="/our-services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
-            Our Services
-          </Link>
-          <div className="navbar-mobile-auth">
-            <Show when="signed-out">
-              <SignInButton mode="modal">
-                <button style={{ background: 'transparent', color: '#000', border: 'none', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>
-                  Sign In
-                </button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <button className="bg-black text-white rounded-full font-extralight text-sm px-4 h-9 cursor-pointer">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </Show>
-            <Show when="signed-in">
-              <UserButton />
-            </Show>
+        {/* Mobile Menu inside the nav */}
+        {mobileMenuOpen && (
+          <div className="navbar-mobile-menu">
+            <Link href="/booking" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              Seat Booking
+            </Link>
+            <Link href="/timetable" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              Normal Bus Timetable
+            </Link>
+            <Link href="/timetable/AC" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              AC Bus Timetable
+            </Link>
+            <Link href="/our-services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              Our Services
+            </Link>
+            <div className="navbar-mobile-auth">
+              <Show when="signed-out">
+                <SignInButton mode="modal">
+                  <button style={{ background: 'transparent', color: '#000', border: 'none', fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                    Sign In
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <button className="bg-black text-white rounded-full font-extralight text-sm px-4 h-9 cursor-pointer">
+                    Sign Up
+                  </button>
+                </SignUpButton>
+              </Show>
+              <Show when="signed-in">
+                <UserButton />
+              </Show>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </nav>
     </div>
   );
 };

@@ -61,8 +61,8 @@ const ACTimetable: React.FC = () => {
         </div>
       </div>
 
-      <div style={s.tableBorder}>
-        <div style={s.labelGrid}>
+      <div className="timetable-table" style={s.tableBorder}>
+        <div className="timetable-label" style={s.labelGrid}>
           <span>Route</span>
           <span>Destination</span>
           <span>Platform</span>
@@ -71,22 +71,61 @@ const ACTimetable: React.FC = () => {
 
         <div style={s.innerWrapper}>
           {currentList.map((item, i) => (
-            <div key={i} style={s.row}>
-              <div style={s.routeBox}>{item.routeNo}</div>
-              <div style={s.destCell}>
-                <div style={s.sin}>{item.destination.sinhala}</div>
-                <div style={s.tam}>{item.destination.tamil}</div>
-                <div style={s.eng}>{item.destination.english}</div>
+            <div key={i} className="timetable-row" style={s.row}>
+              <div className="route-box" style={s.routeBox}>{item.routeNo}</div>
+              <div className="dest-cell" style={s.destCell}>
+                <div className="sin" style={s.sin}>{item.destination.sinhala}</div>
+                <div className="tam" style={s.tam}>{item.destination.tamil}</div>
+                <div className="eng" style={s.eng}>{item.destination.english}</div>
               </div>
-              <div style={s.platCell}>{item.platform}</div>
-              <div style={s.timeCell}>{item.time}</div>
+              <div className="plat-cell" style={s.platCell}>{item.platform}</div>
+              <div className="time-cell" style={s.timeCell}>{item.time}</div>
             </div>
           ))}
         </div>
       </div>
+      <style dangerouslySetInnerHTML={{ __html: mobileStyles }} />
     </div>
   );
 };
+
+const mobileStyles = `
+  @media (max-width: 767px) {
+    .timetable-table {
+      padding: 15px !important;
+    }
+    .timetable-label {
+      font-size: 1rem !important;
+      grid-template-columns: 100px 1fr 100px 100px !important;
+      min-width: auto !important;
+    }
+    .timetable-row {
+      grid-template-columns: 100px 1fr 100px 100px !important;
+      min-width: auto !important;
+    }
+    .route-box {
+      font-size: 1.8rem !important;
+    }
+    .dest-cell {
+      padding: 8px 15px !important;
+    }
+    .sin {
+      font-size: 1rem !important;
+    }
+    .tam {
+      font-size: 0.8rem !important;
+    }
+    .eng {
+      font-size: 1.1rem !important;
+    }
+    .plat-cell {
+      font-size: 1.3rem !important;
+    }
+    .time-cell {
+      font-size: 1.3rem !important;
+    }
+  }
+`;
 
 const s: Record<string, React.CSSProperties> = {
   page: { padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' },
