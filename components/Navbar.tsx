@@ -79,6 +79,11 @@ const Navbar = () => {
               Our Services 
             </Link>
           </li>
+          <li>
+            <Link href="/metro-service" className="nav-link">
+              Metro Service 
+            </Link>
+          </li>
         </ul>
 
         {/* Right Side: Account */}
@@ -114,6 +119,10 @@ const Navbar = () => {
             </Link>
             <Link href="/our-services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
               Our Services
+            </Link>
+            {/* Added Metro Service to Mobile Menu */}
+            <Link href="/metro-service" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              Metro Service
             </Link>
             <div className="navbar-mobile-auth">
               <Show when="signed-out">

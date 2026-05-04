@@ -1,0 +1,19 @@
+.lmt-go-button {
+  display: inline-block;
+  border: 1px solid #d32f2f;
+  color: #d32f2f;
+  background-color: transparent;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 35px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lmt-go-button:hover {
+  background-color: #d32f2f;
+  color: #ffffff;
+}
