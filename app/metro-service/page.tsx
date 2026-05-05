@@ -158,6 +158,107 @@ export default function MetroHero() {
         </div>
       </section>
 
+     {/* --- Minimalist Compact Routes Section --- */}
+<section style={{ padding: '10px 20px', background: '#FFFFFF', marginBottom: '60px'}}>
+  <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    
+    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '30px' }}>
+      <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#1a1a1a', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
+        Live Routes
+      </h2>
+      <div style={{ flex: 1, height: '1px', background: '#eee' }}></div>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {[
+        {
+          id: "01",
+          from: "Makumbura MMC",
+          to: "Pettah / Fort",
+          via: "Diyatha, Rajagiriya, Town Hall",
+          hospital: "National Hospital",
+          color: "#d32f2f"
+        },
+        {
+          id: "02",
+          from: "Makumbura MMC",
+          to: "Kadawatha",
+          via: "Pannipitiya, Battaramulla, Kaduwela",
+          hospital: "Apeksha Hospital",
+          color: "#111"
+        }
+      ].map((route, idx) => (
+        <div key={idx} style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '12px 24px',
+          background: '#fcfcfc',
+          border: '1px solid #f0f0f0',
+          borderRadius: '100px',
+          transition: 'all 0.3s ease',
+          gap: '20px'
+        }}
+        className="compact-route-row"
+        >
+          {/* Route ID */}
+          <span style={{ 
+            fontSize: '0.75rem', 
+            fontWeight: '900', 
+            color: route.color, 
+            width: '30px' 
+          }}>{route.id}</span>
+
+          {/* Path Link */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '1' }}>
+            <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#111' }}>{route.from}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            <span style={{ fontSize: '0.9rem', fontWeight: '700', color: '#111' }}>{route.to}</span>
+          </div>
+
+          {/* Via Stops (Hidden on small mobile) */}
+          <div className="hide-on-mobile" style={{ flex: '1.5', fontSize: '0.8rem', color: '#888', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <span style={{ color: '#bbb', marginRight: '8px' }}>VIA</span> {route.via}
+          </div>
+
+          {/* Priority Badge */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            background: route.color === '#d32f2f' ? '#fdf2f2' : '#f5f5f5', 
+            padding: '6px 14px', 
+            borderRadius: '100px' 
+          }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: route.color }}></div>
+            <span style={{ fontSize: '0.75rem', fontWeight: '700', color: route.color === '#d32f2f' ? '#d32f2f' : '#444' }}>
+              {route.hospital}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style>{`
+    .compact-route-row:hover {
+      border-color: #d32f2f !important;
+      background: #fff !important;
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile { display: none; }
+      .compact-route-row { 
+        padding: 10px 16px !important; 
+        gap: 10px !important;
+        border-radius: 12px !important; 
+      }
+    }
+  `}</style>
+</section>
+
+
+
       {/* --- Footer Section --- */}
       <footer style={{ borderTop: '1px solid #eee', padding: '40px 20px', marginTop: 'auto', background: '#fafafa' }}>
         <div className="footer-main-content" style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
