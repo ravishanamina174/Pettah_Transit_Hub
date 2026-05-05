@@ -143,7 +143,7 @@ export default function MetroHero() {
                 loop 
                 muted 
                 playsInline
-                style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '20px' }}
+                style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '20px' }}
               >
                 <source src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/A%20modern%20smartphone%20in%20three-quarter%20angled%20view%20with%20black%20frame%20and%20visible%20side%20power%20button.%20The%20phone%20starts%20with%20a%20black%20screen%20off.%20A%20finger%20presses%20the%20power%20button%20on%20the%20side%2C%20the%20screen%20powers%20on%20with%20a%20subtle%20glow%20effect%2C%20and%20th.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
