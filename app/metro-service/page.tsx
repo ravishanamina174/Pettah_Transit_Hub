@@ -175,7 +175,7 @@ export default function MetroHero() {
           id: "01",
           from: "Makumbura MMC",
           to: "Pettah / Fort",
-          via: "Diyatha, Rajagiriya, Town Hall",
+          via: "Isurupaya, Sethsiripaya, Rajagiriya, Town Hall",
           hospital: "National Hospital",
           color: "#d32f2f"
         },
@@ -183,7 +183,7 @@ export default function MetroHero() {
           id: "02",
           from: "Makumbura MMC",
           to: "Kadawatha",
-          via: "Pannipitiya, Battaramulla, Kaduwela",
+          via: "Maharagama Apeksha, Narahenpita, Borella, Kelaniya University",
           hospital: "Apeksha Hospital",
           color: "#111"
         }
