@@ -19,6 +19,9 @@ export default function Home() {
   "https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/h7.jpg"
 ];
 
+
+
+
   const nextSlide = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
