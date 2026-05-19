@@ -31,7 +31,6 @@ const ChatBot = () => {
 
   const defaultSuggestions = [
     "Colombo to Badulla timetable",
-    "Next bus to kandy",
     "Hotline numbers",
     "Seat booking info"
   ];
