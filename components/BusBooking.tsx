@@ -240,8 +240,12 @@ export default function BusBookingPage() {
               <span style={searchFieldLabel}>Passengers</span>
               <input
                 type="number"
+                min={1}
                 value={passengers}
-                onChange={(e) => setPassengers(parseInt(e.target.value))}
+                onChange={(e) => {
+                  const n = parseInt(e.target.value, 10);
+                  setPassengers(Number.isNaN(n) || n < 1 ? 1 : n);
+                }}
                 className="bb-input"
                 style={{ ...searchFieldInput, width: '48px' }}
               />
