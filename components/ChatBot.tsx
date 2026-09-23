@@ -96,12 +96,12 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="flex h-dvh w-screen overflow-hidden bg-[#F8F9FA] p-4 font-sans text-[#333] md:h-screen md:p-8">
-      <div className="flex h-full w-full flex-col gap-4 transition-transform duration-300 lg:flex-row lg:gap-0 lg:scale-[0.9] lg:origin-top">
+    <div className="flex h-dvh w-screen overflow-hidden p-4 font-sans text-[#333] md:h-screen md:p-8">
+      <div className="flex h-full w-screen mx-10 flex-col gap-4 transition-transform duration-300 lg:flex-row lg:gap-0 lg:scale-[0.9] lg:origin-top">
         
         {/* LEFT SIDEBAR (No changes needed) */}
         <div className="hidden w-full shrink-0 flex-col gap-6 lg:mr-8 lg:flex lg:w-64">
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 ">
             <div className="flex items-center gap-2 mb-4 text-[#4A4A4A] font-semibold">
               <Sparkles size={18} className="text-green-500" />
               <span>AI Route Assistant</span>
@@ -113,7 +113,7 @@ const ChatBot = () => {
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 ">
             <div className="flex items-center gap-2 mb-4 text-[#4A4A4A] font-semibold">
               <Clock size={18} className="text-green-500" />
               <span>Recent Searches</span>
@@ -127,7 +127,7 @@ const ChatBot = () => {
         </div>
 
         {/* MAIN CHAT AREA */}
-        <div className="flex flex-1 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm md:rounded-[32px]">
+        <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white">
           
           <div className="flex items-center justify-between border-b border-gray-100 p-4 md:p-5 md:px-8">
             <div className="flex items-center gap-3 md:gap-4">
@@ -196,7 +196,7 @@ const ChatBot = () => {
               ))}
             </div>
 
-            <div className="relative flex items-center rounded-[24px] border border-gray-200 bg-white p-2 px-3 shadow-lg focus-within:ring-2 focus-within:ring-green-100 md:px-4">
+            <div className="relative flex items-center rounded-[13px] border border-gray-200 bg-white p-2 px-3 shadow-sm focus-within:ring-2 focus-within:ring-green-100 md:px-4">
               <input
                 type="text"
                 value={inputValue}
