@@ -182,7 +182,7 @@ export default function BusBookingPage() {
         }
         @media (max-width: 600px) {
           .bb-main { padding: 20px 12px !important; }
-          .bb-shell { max-width: 100% !important; border-radius: 12px !important; }
+          .bb-shell { max-width: 100% !important; border-radius: 8px !important; }
           .bb-mainpanel { padding: 18px 14px 26px !important; }
           .bb-rail { padding: 20px 16px !important; }
           .bb-searchbar { flex-direction: column !important; align-items: stretch !important; padding: 12px !important; }
@@ -695,7 +695,7 @@ const mainStyle: React.CSSProperties = {
 
 const shellStyle: React.CSSProperties = {
   display: 'grid', gridTemplateColumns: '210px 1fr', maxWidth: '80%', margin: '0 auto',
-  borderRadius: '16px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(38,38,38,0.08)',
+  borderRadius: '10px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(38,38,38,0.08)',
   border: '1px solid rgba(38,38,38,0.08)'
 };
 

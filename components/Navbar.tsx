@@ -15,7 +15,7 @@ const Navbar = () => {
         padding: '0 25px',
         background: '#FFFFFF',
         border: '0.5px solid #898989',
-        borderRadius: '40px', 
+        borderRadius: '10px', 
         width: '100%',
         maxWidth: '1200px',
         height: '60px',
@@ -28,9 +28,9 @@ const Navbar = () => {
           {/* Left Side: Logo & Title */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '10px' }} onClick={() => setMobileMenuOpen(false)}>
             <img 
-              src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/buslogo.png" 
+              src="https://pub-226e195565bd4889a8ed68fd02cc46ec.r2.dev/bus.png" 
               alt="Logo" 
-              style={{ width: '42px', height: '42px', objectFit: 'contain' }} 
+              style={{ width: '55px', height: '55px', objectFit: 'contain' }} 
             />
             <div style={{ display: 'flex', flexDirection: 'column', marginTop: '4px' }}>
               <span style={{ fontWeight: '800', fontSize: '1rem', color: '#000', lineHeight: '1' }}>Pettah</span>

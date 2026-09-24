@@ -27,7 +27,7 @@ export default function OurServices() {
     border: 'none',
     width: '45px',
     height: '45px',
-    borderRadius: '50%',
+    borderRadius: '9px',
     cursor: 'pointer',
     fontSize: '1.5rem',
     display: 'flex',
@@ -54,7 +54,7 @@ export default function OurServices() {
           width: '100%',
           maxWidth: '1190px',
           border: '1px solid #B5B4B3',
-          borderRadius: '30px',
+          borderRadius: '9px',
           padding: '13px',
           display: 'flex',
           flexWrap: 'wrap',
@@ -69,7 +69,7 @@ export default function OurServices() {
             position: 'relative',
             height: '475px',
             overflow: 'hidden',
-            borderRadius: '20px',
+            borderRadius: '9px',
             background: '#f0f0f0'
           }}>
             {/* Navigation Buttons */}
@@ -100,7 +100,7 @@ export default function OurServices() {
             <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
               {heroImages.map((_, i) => (
                 <div key={i} style={{
-                  width: '8px', height: '8px', borderRadius: '50%',
+                  width: '8px', height: '8px', borderRadius: '9px',
                   background: i === heroImageIndex ? '#FFCC00' : 'rgba(255,255,255,0.5)',
                   transition: '0.3s'
                 }} />
@@ -133,7 +133,7 @@ export default function OurServices() {
                   background: 'transparent',
                   color: '#111',
                   border: 'none',
-                  borderRadius: '0',
+                  borderRadius: '9px',
                   padding: '6px 2px 2px 2px',
                   cursor: 'pointer',
                   fontSize: '15px',
@@ -208,7 +208,7 @@ export default function OurServices() {
           {/* <div style={{
             position: 'relative',
             height: '400px',
-            borderRadius: '20px',
+            borderRadius: '9px',
             overflow: 'hidden',
             boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
             background: '#f0f0f0'
@@ -269,7 +269,7 @@ export default function OurServices() {
             {/* <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
               {comparisonImages.map((_, i) => (
                 <div key={i} style={{
-                  width: '8px', height: '8px', borderRadius: '50%',
+                  width: '8px', height: '8px', borderRadius: '9px',
                   background: i === currentImageIndex ? '#FFCC00' : 'rgba(255,255,255,0.5)',
                   transition: '0.3s'
                 }} />
@@ -323,7 +323,7 @@ export default function OurServices() {
             justifyContent: 'space-around',
             padding: '32px',
             background: '#F9F9F9',
-            borderRadius: '16px',
+            borderRadius: '9px',
             marginTop: '16px'
           }}>
             
@@ -331,7 +331,7 @@ export default function OurServices() {
               <div style={{
                 width: '40px',
                 height: '40px',
-                borderRadius: '50%',
+                borderRadius: '9px',
                 background: '#000',
                 display: 'flex',
                 alignItems: 'center',
@@ -360,7 +360,7 @@ export default function OurServices() {
               <div style={{
                 width: '40px',
                 height: '40px',
-                borderRadius: '50%',
+                borderRadius: '9px',
                 background: '#EBBF41',
                 display: 'flex',
                 alignItems: 'center',
@@ -481,7 +481,7 @@ export default function OurServices() {
             {/* <div style={{
               position: 'relative',
               height: '350px',
-              borderRadius: '20px',
+              borderRadius: '9px',
               overflow: 'hidden',
               boxShadow: '0 8px 24px rgba(0,0,0,0.08)'
             }}>
@@ -503,7 +503,7 @@ export default function OurServices() {
                   color: '#fff',
                   border: '1px solid rgba(255,255,255,0.2)',
                   padding: '8px 16px',
-                  borderRadius: '20px',
+                  borderRadius: '9px',
                   fontSize: '0.85rem',
                   fontWeight: '600',
                   cursor: 'pointer',
@@ -589,7 +589,7 @@ export default function OurServices() {
             {/* Connectivity Details */}
             <div style={{
               background: '#F9F9F9',
-              borderRadius: '16px',
+              borderRadius: '9px',
               padding: '25px',
               border: '1px solid #E5E7EB'
             }}>
@@ -609,7 +609,7 @@ export default function OurServices() {
                   alignItems: 'center',
                   padding: '14px',
                   background: '#FFFFFF',
-                  borderRadius: '12px',
+                  borderRadius: '9px',
                   border: '1px solid #E5E7EB'
                 }}>
                   <div>
@@ -626,7 +626,7 @@ export default function OurServices() {
                     color: '#D41C04',
                     background: '#FFF',
                     padding: '1px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '9px',
                     border: '1px solid #000'
                   }}>
                     5 mins
@@ -639,7 +639,7 @@ export default function OurServices() {
                   alignItems: 'center',
                   padding: '14px',
                   background: '#FFFFFF',
-                  borderRadius: '12px',
+                  borderRadius: '9px',
                   border: '1px solid #E5E7EB'
                 }}>
                   <div>
@@ -656,7 +656,7 @@ export default function OurServices() {
                     color: '#D41C04',
                     background: '#FFF',
                     padding: '1px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '9px',
                     border: '1px solid #000'
                   }}>
                     2 mins
@@ -668,7 +668,7 @@ export default function OurServices() {
             {/* Regional Coverage */}
             <div style={{
               background: '#FFFFFF',
-              borderRadius: '16px',
+              borderRadius: '9px',
               padding: '25px',
               border: '1px solid #E5E7EB',
               boxShadow: '0 2px 8px rgba(0,0,0,0.03)'
@@ -709,7 +709,7 @@ export default function OurServices() {
                       flex: '1 1 280px',
                       padding: '10px',
                       background: '#F9F9F9',
-                      borderRadius: '12px',
+                      borderRadius: '9px',
                       border: '1px solid #E5E7EB',
                       transition: 'all 0.2s'
                     }}
@@ -784,7 +784,7 @@ export default function OurServices() {
               background: '#FAD5A5',
               color: '#000',
               border: 'none',
-              borderRadius: '50px',
+              borderRadius: '9px',
               padding: '10px 32px',
               fontSize: '1rem',
               fontWeight: '600',
@@ -830,7 +830,7 @@ function ServiceCard({
     <div
       style={{
         border: '1px solid #E5E7EB',
-        borderRadius: '14px',
+        borderRadius: '9px',
         padding: '28px',
         background: '#FFFFFF',
         display: 'flex',
@@ -878,7 +878,7 @@ function ServiceCard({
             padding: '10px 20px',
             background: '#F0F0F0',
             border: '1px solid #E5E7EB',
-            borderRadius: '8px',
+            borderRadius: '9px',
             fontSize: '0.9rem',
             fontWeight: '600',
             color: '#000',
@@ -916,7 +916,7 @@ function FeatureItem({ icon, label }: { icon: string; label: string }) {
         gap: '12px',
         padding: '24px',
         background: '#FFFFFF',
-        borderRadius: '12px',
+        borderRadius: '9px',
         border: '1px solid #E5E7EB',
         transition: 'all 0.2s'
       }}

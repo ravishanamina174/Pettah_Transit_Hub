@@ -194,7 +194,7 @@ export default function MetroHero() {
           padding: '12px 24px',
           background: '#fcfcfc',
           border: '1px solid #f0f0f0',
-          borderRadius: '100px',
+          borderRadius: '10px',
           transition: 'all 0.3s ease',
           gap: '20px'
         }}

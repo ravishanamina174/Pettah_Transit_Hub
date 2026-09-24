@@ -55,7 +55,7 @@ export default function Home() {
         width: '100%',
         maxWidth: '1190px',
         border: '1px solid rgba(0,0,0,0.07)',
-        borderRadius: '30px',
+        borderRadius: '10px',
         padding: '16px',
         display: 'flex',
         flexWrap: 'wrap',
@@ -72,7 +72,7 @@ export default function Home() {
           position: 'relative', 
           height: '475px', 
           overflow: 'hidden', 
-          borderRadius: '22px',
+          borderRadius: '8px',
           background: '#f0f0f0',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.04)'
         }}>
@@ -132,7 +132,7 @@ export default function Home() {
         alignItems: 'center',
         gap: '10px',
         background: 'transparent',
-        color: '#111',
+        color: '#3368A0',
         border: 'none',
         borderRadius: '0',
         padding: '6px 2px 2px 2px',
@@ -144,19 +144,19 @@ export default function Home() {
       }}
       onMouseEnter={e => {
         e.currentTarget.style.gap = '16px';
-        e.currentTarget.style.color = '#ebbc02';
+        e.currentTarget.style.color = '#3368A0';
         const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
         if (underline) {
-          underline.style.borderBottomColor = '#ebbc02';
+          underline.style.borderBottomColor = '#3368A0';
           underline.style.width = '100%';
         }
       }}
       onMouseLeave={e => {
         e.currentTarget.style.gap = '10px';
-        e.currentTarget.style.color = '#111';
+        e.currentTarget.style.color = '#3368A0';
         const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
         if (underline) {
-          underline.style.borderBottomColor = '#111';
+          underline.style.borderBottomColor = '#3368A0';
           underline.style.width = '42%';
         }
       }}
@@ -174,7 +174,7 @@ export default function Home() {
           width: '42%',
           borderBottomWidth: '1.5px',
           borderBottomStyle: 'solid',
-          borderBottomColor: '#111',
+          borderBottomColor: '#3368A0',
           transition: 'border-color 0.25s ease, width 0.25s ease',
         }}
       />
@@ -228,7 +228,7 @@ export default function Home() {
   </div>
 
   {/* Location & Connectivity Section */}
-<section className="home-location-section" style={{ padding: '64px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
+<section className="home-location-section" style={{ padding: '64px 20px', display: 'flex', justifyContent: 'center', background: '#fcfcfc' }}>
   <div className="home-location-grid" style={{
     width: '100%',
     maxWidth: '1190px',
@@ -266,18 +266,18 @@ export default function Home() {
       <button
       className="pcw-timetable-btn"
       style={{
-        background: '#EBBF41',
+        background: '#6CA651',
         border: 'none',
         padding: '12px 30px',
-        borderRadius: '50px',
+        borderRadius: '8px',
         fontSize: '1rem',
-        color: '#241f00',
+        color: '#ffffff',
         fontWeight: '700',
         cursor: 'pointer',
-        boxShadow: '0 10px 24px rgba(235,191,65,0.35)'   
+        boxShadow: '0 10px 24px rgba(115,151,106,0.35)'   
       }}
-      onMouseOver={(e) => e.currentTarget.style.background = '#d9ae36'}
-      onMouseOut={(e) => e.currentTarget.style.background = '#EBBF41'}
+      onMouseOver={(e) => e.currentTarget.style.background = '#73976A'}
+      onMouseOut={(e) => e.currentTarget.style.background = '#6CA651'}
       >
         View Live Bus Timetable
       </button>
@@ -307,7 +307,7 @@ export default function Home() {
       background: 'rgba(0, 0, 0, 0.55)', // Dark translucent background
       color: '#FFFFFF',
       padding: '6px 16px',
-      borderRadius: '20px',
+      borderRadius: '10px',
       textDecoration: 'none',
       fontSize: '0.9rem',
       fontWeight: '600',
@@ -396,7 +396,7 @@ export default function Home() {
 </section>
 
 {/* System Works & Destinations Section */}
-<section style={{ padding: '80px 20px', background: '#F9F7F2', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+<section style={{ padding: '80px 20px', background: '#fffefc', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
   <div style={{ maxWidth: '1190px', width: '100%' }}>
     
     {/* How this system works */}
@@ -526,7 +526,7 @@ const infoItemStyle: React.CSSProperties = {
   backdropFilter: 'blur(10px)',
   WebkitBackdropFilter: 'blur(10px)',
   border: '1px solid rgba(0,0,0,0.06)',
-  borderRadius: '20px',
+  borderRadius: '6px',
   padding: '28px 20px',
   boxShadow: '0 8px 24px rgba(0,0,0,0.04)'
 };
@@ -554,7 +554,7 @@ const bubbleStyle: React.CSSProperties = {
   WebkitBackdropFilter: 'blur(12px)',
   border: '1px solid rgba(0,0,0,0.08)',
   padding: '12px 24px',
-  borderRadius: '50px',
+  borderRadius: '8px',
   fontSize: '1rem',
   display: 'flex',
   alignItems: 'center',
@@ -570,7 +570,7 @@ const destinationColumnStyle: React.CSSProperties = {
   backdropFilter: 'blur(8px)',
   WebkitBackdropFilter: 'blur(8px)',
   border: '1px solid rgba(0,0,0,0.06)',
-  borderRadius: '16px',
+  borderRadius: '8px',
   padding: '22px 20px',
   boxShadow: '0 6px 18px rgba(0,0,0,0.04)'
 };
@@ -619,7 +619,7 @@ const navBtnStyle: React.CSSProperties = {
   border: '1px solid rgba(255,255,255,0.5)',
   width: '45px',
   height: '45px',
-  borderRadius: '50%',
+  borderRadius: '10%',
   cursor: 'pointer',
   fontSize: '1.5rem',
   display: 'flex',
