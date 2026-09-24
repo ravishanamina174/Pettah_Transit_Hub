@@ -101,7 +101,7 @@ const ChatBot = () => {
         
         {/* LEFT SIDEBAR (No changes needed) */}
         <div className="hidden w-full shrink-0 flex-col gap-6 lg:mr-8 lg:flex lg:w-64">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 ">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 ">
             <div className="flex items-center gap-2 mb-4 text-[#4A4A4A] font-semibold">
               <Sparkles size={18} className="text-green-500" />
               <span>AI Route Assistant</span>
@@ -113,7 +113,7 @@ const ChatBot = () => {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 ">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 ">
             <div className="flex items-center gap-2 mb-4 text-[#4A4A4A] font-semibold">
               <Clock size={18} className="text-green-500" />
               <span>Recent Searches</span>
@@ -127,7 +127,7 @@ const ChatBot = () => {
         </div>
 
         {/* MAIN CHAT AREA */}
-        <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white">
+        <div className="flex flex-1 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white">
           
           <div className="flex items-center justify-between border-b border-gray-100 p-4 md:p-5 md:px-8">
             <div className="flex items-center gap-3 md:gap-4">
@@ -189,14 +189,14 @@ const ChatBot = () => {
                   key={idx} 
                   disabled={isTyping}
                   onClick={() => handleSuggestionClick(text)} 
-                  className="whitespace-nowrap rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                  className="whitespace-nowrap rounded-xl border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50"
                 >
                   {text}
                 </button>
               ))}
             </div>
 
-            <div className="relative flex items-center rounded-[13px] border border-gray-200 bg-white p-2 px-3 shadow-sm focus-within:ring-2 focus-within:ring-green-100 md:px-4">
+            <div className="relative flex items-center rounded-[8px] border border-gray-200 bg-white p-2 px-3 shadow-sm focus-within:ring-2 focus-within:ring-green-100 md:px-4">
               <input
                 type="text"
                 value={inputValue}
