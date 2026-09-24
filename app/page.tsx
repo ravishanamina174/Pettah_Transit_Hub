@@ -26,7 +26,23 @@ export default function Home() {
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   return (
-    <main className="w-screen min-h-screen bg-white overflow-x-hidden">
+    <main className="w-screen min-h-screen bg-white overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
+      <style>{`
+        .pcw-navbtn { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; }
+        .pcw-navbtn:hover { transform: translateY(-50%) scale(1.07); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+        .pcw-feature-card { transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease; }
+        .pcw-feature-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(0,0,0,0.08); background: rgba(255,255,255,0.85) !important; }
+        .pcw-bubble { transition: transform 0.28s ease, box-shadow 0.28s ease; }
+        .pcw-bubble:hover { transform: translateY(-5px) scale(1.035); box-shadow: 0 16px 30px rgba(0,0,0,0.12); }
+        .pcw-dest-col { transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease; }
+        .pcw-dest-col:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.07); background: rgba(255,255,255,0.85) !important; }
+        .pcw-footer-link { transition: color 0.2s ease, opacity 0.2s ease; }
+        .pcw-footer-link:hover { color: #EBBF41 !important; opacity: 1; }
+        .pcw-maps-pill { transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
+        .pcw-maps-pill:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
+        .pcw-timetable-btn { transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; }
+        .pcw-timetable-btn:hover { transform: translateY(-3px); }
+      `}</style>
       <div style={{ padding: '0.5rem' }}>
         <Navbar />
       </div>
@@ -34,19 +50,20 @@ export default function Home() {
         <ChatButton/>
       </div>
 
-      <section className="home-hero-section" style={{ padding: '40px 20px', display: 'flex', justifyContent: 'center' }}>
+      <section className="home-hero-section" style={{ padding: '48px 20px', display: 'flex', justifyContent: 'center' }}>
       <div className="home-hero-card" style={{
         width: '100%',
         maxWidth: '1190px',
-        border: '1px solid #B5B4B3',
+        border: '1px solid rgba(0,0,0,0.07)',
         borderRadius: '30px',
-        padding: '13px',
+        padding: '16px',
         display: 'flex',
         flexWrap: 'wrap',
         gap: '36px',
         alignItems: 'center',
         background: '#FFFFFF',
-        minHeight: '500px'
+        minHeight: '500px',
+        boxShadow: '0 24px 60px -20px rgba(0,0,0,0.10)'
       }}>
 
         {/* Carousel Section */}
@@ -55,22 +72,25 @@ export default function Home() {
           position: 'relative', 
           height: '475px', 
           overflow: 'hidden', 
-          borderRadius: '20px',
-          background: '#f0f0f0' 
+          borderRadius: '22px',
+          background: '#f0f0f0',
+          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.04)'
         }}>
           {/* Navigation Buttons */}
           <button 
+            className="pcw-navbtn"
             onClick={prevSlide}
             style={{ ...navBtnStyle, left: '20px' }}
-            onMouseOver={(e) => e.currentTarget.style.background = '#fff'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)'}
+            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.92)'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.55)'}
           >‹</button>
           
           <button 
+            className="pcw-navbtn"
             onClick={nextSlide}
             style={{ ...navBtnStyle, right: '20px' }}
-            onMouseOver={(e) => e.currentTarget.style.background = '#fff'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)'}
+            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.92)'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.55)'}
           >›</button>
 
           {/* Main Image */}
@@ -85,7 +105,8 @@ export default function Home() {
             {images.map((_, i) => (
               <div key={i} style={{
                 width: '8px', height: '8px', borderRadius: '50%',
-                background: i === currentIndex ? '#FFCC00' : 'rgba(255,255,255,0.5)',
+                background: i === currentIndex ? '#FFCC00' : 'rgba(255,255,255,0.55)',
+                boxShadow: i === currentIndex ? '0 0 0 3px rgba(255,204,0,0.25)' : 'none',
                 transition: '0.3s'
               }} />
             ))}
@@ -93,12 +114,12 @@ export default function Home() {
         </div>
 
         {/* Text Content Section */}
-        <div className="home-hero-content" style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '18px', alignSelf: 'flex-start', paddingTop: '20px' }}>
-          <h1 style={{ fontSize: '2.6rem', fontWeight: '800', lineHeight: '1.15', margin: 0, color: '#000', letterSpacing: '-0.5px' }}>
+        <div className="home-hero-content" style={{ flex: 0.85, display: 'flex', flexDirection: 'column', gap: '20px', alignSelf: 'flex-start', paddingTop: '20px' }}>
+          <h1 style={{ fontSize: '2.7rem', fontWeight: '800', lineHeight: '1.12', margin: 0, color: '#0A0A0A', letterSpacing: '-1px' }}>
             Plan your journey from Pettah, Colombo's main transport hub
           </h1>
 
-          <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.6', margin: 0 }}>
+          <p style={{ fontSize: '0.98rem', color: '#5A5A5A', lineHeight: '1.7', margin: 0 }}>
             Travel across Sri Lanka with ease using real-time bus schedules,
             route guidance, and seamless seat booking from Pettah Central Bus Stand.
           </p>
@@ -117,21 +138,27 @@ export default function Home() {
         padding: '6px 2px 2px 2px',
         cursor: 'pointer',
         fontSize: '15px',
-        fontWeight: '500',
-        transition: 'gap 0.2s, color 0.2s',
+        fontWeight: '600',
+        transition: 'gap 0.25s ease, color 0.25s ease',
         position: 'relative',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.gap = '16px';
         e.currentTarget.style.color = '#ebbc02';
         const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
-        if (underline) underline.style.borderBottomColor = '#ebbc02';
+        if (underline) {
+          underline.style.borderBottomColor = '#ebbc02';
+          underline.style.width = '100%';
+        }
       }}
       onMouseLeave={e => {
         e.currentTarget.style.gap = '10px';
         e.currentTarget.style.color = '#111';
         const underline = e.currentTarget.querySelector('.underline') as HTMLElement;
-        if (underline) underline.style.borderBottomColor = '#111';
+        if (underline) {
+          underline.style.borderBottomColor = '#111';
+          underline.style.width = '42%';
+        }
       }}
     >
       Book Your Seat Now
@@ -148,7 +175,7 @@ export default function Home() {
           borderBottomWidth: '1.5px',
           borderBottomStyle: 'solid',
           borderBottomColor: '#111',
-          transition: 'border-color 0.2s',
+          transition: 'border-color 0.25s ease, width 0.25s ease',
         }}
       />
     </button>
@@ -160,15 +187,15 @@ export default function Home() {
   display: 'flex', 
   flexWrap: 'wrap',
   justifyContent: 'center', 
-  alignItems: 'flex-start', 
+  alignItems: 'stretch', 
   maxWidth: '1190px', 
   margin: '40px auto', // Centers the whole section on the page
-  gap: '40px',          // Space between the four columns
+  gap: '24px',          // Space between the four columns
   padding: '0 20px' 
 }}>
   
   {/* Item 1: Bus Terminal */}
-  <div style={infoItemStyle}>
+  <div className="pcw-feature-card" style={infoItemStyle}>
     <img src="/bus.png" alt="Bus" style={iconStyle} />
     <p style={textStyle}>
       serving as the main terminal for intercity and local buses.
@@ -176,7 +203,7 @@ export default function Home() {
   </div>
 
   {/* Item 2: Online Booking */}
-  <div style={infoItemStyle}>
+  <div className="pcw-feature-card" style={infoItemStyle}>
     <img src="/online-booking.png" alt="Booking" style={iconStyle} />
     <p style={textStyle}>
       Easy access to schedules and online ticket reservations system
@@ -184,7 +211,7 @@ export default function Home() {
   </div>
 
   {/* Item 3: Amenities */}
-  <div style={infoItemStyle}>
+  <div className="pcw-feature-card" style={infoItemStyle}>
     <img src="/toilet.png" alt="Toilet" style={iconStyle} />
     <p style={textStyle}>
       Serving daily commuters with waiting areas and Washrooms
@@ -192,7 +219,7 @@ export default function Home() {
   </div>
   
   {/* Item 4: Emergency */}
-  <div style={infoItemStyle}>
+  <div className="pcw-feature-card" style={infoItemStyle}>
     <img src="/ambulance.png" alt="Ambulance" style={iconStyle} />
     <p style={textStyle}>
       Emergency services and hotlines ensuring passenger safety
@@ -201,7 +228,7 @@ export default function Home() {
   </div>
 
   {/* Location & Connectivity Section */}
-<section className="home-location-section" style={{ padding: '60px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
+<section className="home-location-section" style={{ padding: '64px 20px', display: 'flex', justifyContent: 'center', background: '#F5F5F5' }}>
   <div className="home-location-grid" style={{
     width: '100%',
     maxWidth: '1190px',
@@ -218,33 +245,36 @@ export default function Home() {
           fontWeight: '700', 
           margin: 0,
           paddingBottom: '2px',
+          letterSpacing: '-0.2px',
           display: 'inline-block'
         }}>
           Location & Connectivity
         </h2>
       </div>
       
-      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
+      <p style={{ fontSize: '1rem', color: '#3A3A3A', lineHeight: '1.7', marginBottom: '20px' }}>
         The Pettah Central Bus Stand is the main transport hub for long-distance and intercity buses in Colombo.
       </p>
-      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '20px' }}>
+      <p style={{ fontSize: '1rem', color: '#3A3A3A', lineHeight: '1.7', marginBottom: '20px' }}>
         Located along Olcott Mawatha, near Fort Railway Station, it provides convenient access for passengers traveling between rail and road transport.
       </p>
-      <p style={{ fontSize: '1rem', color: '#333', lineHeight: '1.6', marginBottom: '32px' }}>
+      <p style={{ fontSize: '1rem', color: '#3A3A3A', lineHeight: '1.7', marginBottom: '32px' }}>
         This central location makes it one of the busiest and most important transit points in the country.
       </p>
 
       <Link href="/timetable" >
-      <button style={{
+      <button
+      className="pcw-timetable-btn"
+      style={{
         background: '#EBBF41',
         border: 'none',
-        padding: '10px 28px',
+        padding: '12px 30px',
         borderRadius: '50px',
         fontSize: '1rem',
-        color: '#302f2f',
+        color: '#241f00',
         fontWeight: '700',
         cursor: 'pointer',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.05)'   
+        boxShadow: '0 10px 24px rgba(235,191,65,0.35)'   
       }}
       onMouseOver={(e) => e.currentTarget.style.background = '#d9ae36'}
       onMouseOut={(e) => e.currentTarget.style.background = '#EBBF41'}
@@ -254,7 +284,7 @@ export default function Home() {
       </Link>
 
 
-      <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '12px', paddingLeft: '5px' }}>
+      <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '14px', paddingLeft: '5px', lineHeight: '1.5' }}>
         Check daily and weekly schedules or find your route<br/> instantly using our smart route system.
       </p>
     </div>
@@ -263,6 +293,7 @@ export default function Home() {
 <div className="home-map-wrap" style={{ flex: 1.2, position: 'relative' }}>
   {/* Open in Maps Button */}
   <a 
+    className="pcw-maps-pill"
     href="https://www.google.com/maps/place/Pettah+CTB+bus+stand/@6.9336336,79.8485523,15.8z/data=!4m6!3m5!1s0x3ae2590051d7c54b:0x9c88d1d9c9a25b2a!8m2!3d6.9351176!4d79.8543603!16s%2Fg%2F11wwytbh94?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" 
     target="_blank" 
     rel="noopener noreferrer"
@@ -273,20 +304,21 @@ export default function Home() {
       display: 'flex',
       alignItems: 'center',
       gap: '8px',
-      background: 'rgba(0, 0, 0, 0.65)', // Dark translucent background
+      background: 'rgba(0, 0, 0, 0.55)', // Dark translucent background
       color: '#FFFFFF',
-      padding: '4px 15px',
+      padding: '6px 16px',
       borderRadius: '20px',
       textDecoration: 'none',
       fontSize: '0.9rem',
       fontWeight: '600',
-      backdropFilter: 'blur(4px)', // Glassmorphism effect
-      transition: 'all 0.2s ease',
+      backdropFilter: 'blur(8px)', // Glassmorphism effect
+      WebkitBackdropFilter: 'blur(8px)',
       zIndex: 10,
-      border: '1px solid rgba(255, 255, 255, 0.1)'
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      boxShadow: '0 8px 20px rgba(0,0,0,0.18)'
     }}
-    onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)'}
-    onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.65)'}
+    onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.75)'}
+    onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0, 0, 0, 0.55)'}
   >
     {/* Google Maps Icon - Simple SVG version */}
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,8 +333,8 @@ export default function Home() {
     style={{ 
       width: '100%', 
       display: 'block',
-      borderRadius: '15px', 
-      boxShadow: '0 10px 30px rgba(0,0,0,0.08)' 
+      borderRadius: '18px', 
+      boxShadow: '0 20px 45px rgba(0,0,0,0.10)' 
     }} 
   />
 </div>
@@ -313,7 +345,7 @@ export default function Home() {
 
 {/* Hotlines & Help Desk Section */}
 <section className="home-hotline-section" style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#FFFFFF' }}>
-  <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '60px' }}>Hotlines & help desk</h2>
+  <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '60px', letterSpacing: '-0.5px' }}>Hotlines & help desk</h2>
   
   <div className="home-hotline-visual" style={{ 
     position: 'relative', 
@@ -328,35 +360,35 @@ export default function Home() {
     <img 
       src="/middle-bus.png" 
       alt="Bus Support Illustration" 
-      style={{ width: '380px', zIndex: 1 }} 
+      style={{ width: '380px', zIndex: 1, filter: 'drop-shadow(0 12px 20px rgba(0,0,0,0.08))' }} 
     />
 
     {/* Bubble: SLTB Contact (Top) */}
-    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '0', left: '50%', transform: 'translateX(-50%)' }}>
+    <div className="pcw-bubble" style={{ ...bubbleStyle, top: '0', left: '50%', transform: 'translateX(-50%)' }}>
       <span style={{ fontWeight: '700' }}>SLTB contact</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>011 755 5555</span>
     </div>
 
     {/* Bubble: Suwa Seriya (Mid-Left) */}
-    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '35%', left: '0' }}>
+    <div className="pcw-bubble" style={{ ...bubbleStyle, top: '35%', left: '0' }}>
       <span style={{ fontWeight: '700' }}>Suwa Seriya</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>1990</span>
     </div>
 
     {/* Bubble: Hotline (Mid-Right) */}
-    <div className="home-hotline-bubble" style={{ ...bubbleStyle, top: '40%', right: '0' }}>
+    <div className="pcw-bubble" style={{ ...bubbleStyle, top: '40%', right: '0' }}>
       <span style={{ fontWeight: '700' }}>Hotline</span> 
       <span style={{ color: '#D32F2F', marginLeft: '15px' }}>1315</span>
     </div>
 
     {/* Bubble: Passenger Feedback (Bottom-Left) */}
-    <div className="home-hotline-bubble" style={{ ...bubbleStyle, bottom: '15%', left: '-20px' }}>
+    <div className="pcw-bubble" style={{ ...bubbleStyle, bottom: '15%', left: '-20px' }}>
       <span style={{ fontWeight: '700' }}>Passenger Feedback</span> 
       <span style={{ color: '#666', marginLeft: '15px' }}>1958</span>
     </div>
 
     {/* Bubble: Seat Booking (Bottom-Right) */}
-    <div className="home-hotline-bubble" style={{ ...bubbleStyle, bottom: '15%', right: '-10px' }}>
+    <div className="pcw-bubble" style={{ ...bubbleStyle, bottom: '15%', right: '-10px' }}>
       <span style={{ fontWeight: '700' }}>Seat booking</span> 
       <span style={{ color: '#666', marginLeft: '15px', textDecoration: 'underline' }}>1315.lk</span>
     </div>
@@ -368,27 +400,27 @@ export default function Home() {
   <div style={{ maxWidth: '1190px', width: '100%' }}>
     
     {/* How this system works */}
-    <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '20px' }}>How this system works</h2>
-    <p style={{ maxWidth: '1300px', color: '#555', lineHeight: '1.6', marginBottom: '40px', fontSize: '1rem' }}>
+    <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '20px', letterSpacing: '-0.4px' }}>How this system works</h2>
+    <p style={{ maxWidth: '1300px', color: '#4A4A4A', lineHeight: '1.7', marginBottom: '40px', fontSize: '1rem' }}>
       Passengers can browse routes, check timetables, and reserve seats through the web, app, or hotline-based booking flow. The official 1315/eseat 
       platform supports real-time seat reservation and passenger transport information, and users can choose seats from the vehicle's seat layout before 
       receiving confirmation by SMS or email, ensuring a convenient and efficient booking experience.
     </p>
 
     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '80px' }}>
-      <img src="/steps.png" alt="Booking Steps" style={{ width: '100%', maxWidth: '600px' }} />
+      <img src="/steps.png" alt="Booking Steps" style={{ width: '100%', maxWidth: '600px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.06))' }} />
     </div>
 
     {/* Top Destinations */}
     <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-      <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '10px' }}>Top Destinations and bus connections</h2>
+      <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '10px', letterSpacing: '-0.4px' }}>Top Destinations and bus connections</h2>
       <p style={{ color: '#666', fontWeight: '600' }}>Cities</p>
       <div style={{ width: '100%', height: '1px', background: '#E0E0E0', marginTop: '20px' }}></div>
     </div>
 
     {/* Destinations Grid */}
     <div className="home-destination-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px' }}>
-      <div style={destinationColumnStyle}>
+      <div className="pcw-dest-col" style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>Western / Colombo suburbs</h4>
         <ul style={listStyle}>
           <li>Gampaha</li><li>Pugoda</li><li>Kirindiwela</li><li>Malwana</li><li>Delgoda</li>
@@ -397,7 +429,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <div style={destinationColumnStyle}>
+      <div className="pcw-dest-col" style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>Southern corridor</h4>
         <ul style={listStyle}>
           <li>Galle</li><li>Matara</li><li>Tangalle</li><li>Kataragama</li><li>Deniyaya</li>
@@ -405,7 +437,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <div style={destinationColumnStyle}>
+      <div className="pcw-dest-col" style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>Central / hill-country corridor</h4>
         <ul style={listStyle}>
           <li>Badulla</li><li>Passara</li><li>Bandarawela</li><li>Kandy</li><li>Digana</li>
@@ -413,7 +445,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <div style={destinationColumnStyle}>
+      <div className="pcw-dest-col" style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>North / Eastern corridor</h4>
         <ul style={listStyle}>
           <li>Anuradhapura</li><li>Vavuniya</li><li>Jaffna</li><li>Kankesanthurai</li><li>Point Pedro</li>
@@ -422,7 +454,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <div style={destinationColumnStyle}>
+      <div className="pcw-dest-col" style={destinationColumnStyle}>
         <h4 style={columnTitleStyle}>Sabaragamuwa corridor</h4>
         <ul style={listStyle}>
           <li>Ratnapura</li><li>Balangoda</li><li>Embilipitiya</li><li>Rakwana</li>
@@ -440,15 +472,15 @@ export default function Home() {
       {/* Footer Links */}
       <div className="home-footer-links" style={{ display: 'flex', gap: '80px' , marginTop: '35px'}}>
         <div style={footerLinkColStyle}>
-          <a href="#" style={footerLinkStyle}>Login</a>
-          <a href="#" style={footerLinkStyle}>Send Ticket</a>
-          <a href="#" style={footerLinkStyle}>Transfer Ticket</a>
-          <a href="#" style={footerLinkStyle}>Contact Us</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>Login</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>Send Ticket</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>Transfer Ticket</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>Contact Us</a>
         </div>
         <div style={footerLinkColStyle}>
-          <a href="#" style={footerLinkStyle}>FAQ</a>
-          <a href="#" style={footerLinkStyle}>T & C</a>
-          <a href="#" style={footerLinkStyle}>Privacy Policy</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>FAQ</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>T & C</a>
+          <a className="pcw-footer-link" href="#" style={footerLinkStyle}>Privacy Policy</a>
         </div>
       </div>
 
@@ -485,52 +517,70 @@ const imageStyle: React.CSSProperties = {
 
 // --- Styles for perfect alignment ---
 const infoItemStyle: React.CSSProperties = {
-  flex: 1,                    // Gives all 4 items exactly the same width
+  flex: '1 1 220px',          // Gives all 4 items roughly the same width, wraps gracefully
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',       // Centers icon and text horizontally
-  textAlign: 'center'         // Centers the lines of text
+  textAlign: 'center',        // Centers the lines of text
+  background: 'rgba(255,255,255,0.55)',
+  backdropFilter: 'blur(10px)',
+  WebkitBackdropFilter: 'blur(10px)',
+  border: '1px solid rgba(0,0,0,0.06)',
+  borderRadius: '20px',
+  padding: '28px 20px',
+  boxShadow: '0 8px 24px rgba(0,0,0,0.04)'
 };
 
 const iconStyle: React.CSSProperties = {
   width: '50px',
   height: '50px',
   objectFit: 'contain',
-  marginBottom: '15px'        // Clean space between icon and text
+  marginBottom: '16px',        // Clean space between icon and text
+  filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.06))'
 };
 
 const textStyle: React.CSSProperties = {
-  fontSize: '1rem',
-  color: '#333',
-  lineHeight: '1.4',
+  fontSize: '0.95rem',
+  color: '#3F3F3F',
+  lineHeight: '1.5',
   margin: 0,
   maxWidth: '220px'           // Prevents text from stretching too wide
 };
 
 const bubbleStyle: React.CSSProperties = {
   position: 'absolute',
-  background: '#FFF',
-  border: '1px solid #000',
+  background: 'rgba(255,255,255,0.65)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  border: '1px solid rgba(0,0,0,0.08)',
   padding: '12px 24px',
   borderRadius: '50px',
   fontSize: '1rem',
   display: 'flex',
   alignItems: 'center',
   whiteSpace: 'nowrap',
-  boxShadow: '0 4px 10px rgba(0,0,0,0.03)',
+  boxShadow: '0 10px 24px rgba(0,0,0,0.07)',
   zIndex: 2
 };
 
 const destinationColumnStyle: React.CSSProperties = {
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  background: 'rgba(255,255,255,0.55)',
+  backdropFilter: 'blur(8px)',
+  WebkitBackdropFilter: 'blur(8px)',
+  border: '1px solid rgba(0,0,0,0.06)',
+  borderRadius: '16px',
+  padding: '22px 20px',
+  boxShadow: '0 6px 18px rgba(0,0,0,0.04)'
 };
 
 const columnTitleStyle: React.CSSProperties = {
   fontSize: '0.95rem',
   fontWeight: '800',
   marginBottom: '15px',
-  color: '#000'
+  color: '#000',
+  letterSpacing: '-0.1px'
 };
 
 const listStyle: React.CSSProperties = {
@@ -538,8 +588,8 @@ const listStyle: React.CSSProperties = {
   padding: 0,
   margin: 0,
   fontSize: '0.85rem',
-  lineHeight: '1.8',
-  color: '#333'
+  lineHeight: '1.9',
+  color: '#3F3F3F'
 };
 
 const footerLinkColStyle: React.CSSProperties = {
@@ -557,7 +607,7 @@ const footerLinkStyle: React.CSSProperties = {
 
 const footerDetailStyle: React.CSSProperties = {
   fontSize: '0.8rem',
-  color: '#333',
+  color: '#3F3F3F',
   margin: '2px 0'
 };
 
@@ -565,8 +615,8 @@ const navBtnStyle: React.CSSProperties = {
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
-  background: 'rgba(255, 255, 255, 0.8)',
-  border: 'none',
+  background: 'rgba(255, 255, 255, 0.55)',
+  border: '1px solid rgba(255,255,255,0.5)',
   width: '45px',
   height: '45px',
   borderRadius: '50%',
@@ -575,7 +625,6 @@ const navBtnStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-  zIndex: 2,
-  transition: 'background 0.2s ease'
+  boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
+  zIndex: 2
 };
