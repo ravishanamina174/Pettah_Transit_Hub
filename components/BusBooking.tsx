@@ -159,7 +159,7 @@ export default function BusBookingPage() {
   };
 
   return (
-    <main className="booking-main" style={mainStyle}>
+    <main className="booking-main bb-main" style={mainStyle}>
       <style>{`
         .bb-input:focus, .bb-select:focus { outline: none; border-color: ${C.ink} !important; box-shadow: 0 0 0 3px rgba(38,38,38,0.08); }
         .bb-btn-primary:hover:not(:disabled) { filter: brightness(0.93); }
@@ -173,11 +173,32 @@ export default function BusBookingPage() {
         @keyframes bb-pop-in { from { opacity: 0; transform: scale(0.92) translateY(6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         @keyframes bb-spin { to { transform: rotate(360deg); } }
         @keyframes bb-check-pop { 0% { transform: scale(0.4); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); } }
+
+        /* ---- Mobile responsive overrides (desktop layout/logic untouched above this width) ---- */
+        @media (max-width: 860px) {
+          .bb-shell { grid-template-columns: 1fr !important; max-width: 94% !important; }
+          .bb-rail { border-right: none !important; border-bottom: 1px solid rgba(38,38,38,0.08) !important; }
+          .bb-workspace { grid-template-columns: 1fr !important; gap: 26px !important; }
+        }
+        @media (max-width: 600px) {
+          .bb-main { padding: 20px 12px !important; }
+          .bb-shell { max-width: 100% !important; border-radius: 12px !important; }
+          .bb-mainpanel { padding: 18px 14px 26px !important; }
+          .bb-rail { padding: 20px 16px !important; }
+          .bb-searchbar { flex-direction: column !important; align-items: stretch !important; padding: 12px !important; }
+          .bb-searchfield { width: 100% !important; padding: 8px 4px !important; }
+          .bb-searchdivider { display: none !important; }
+          .bb-searchbtn { margin-left: 0 !important; width: 100% !important; margin-top: 4px !important; }
+          .bb-seatcard { padding: 14px 12px !important; }
+          .bb-miniticket { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+          .bb-drawer { width: 100% !important; max-width: 100% !important; border-radius: 0 !important; }
+          .bb-ticket-modal { max-width: 92vw !important; }
+        }
       `}</style>
 
-      <div style={shellStyle}>
+      <div className="bb-shell" style={shellStyle}>
         {/* ---- Left rail: identity + step progress + running total ---- */}
-        <aside style={railStyle}>
+        <aside className="bb-rail" style={railStyle}>
           <div>
             <div style={brandRow}>
               <p style={railBrand}>Bus Lines</p>
@@ -204,16 +225,16 @@ export default function BusBookingPage() {
         </aside>
 
         {/* ---- Main panel ---- */}
-        <section style={mainPanelStyle}>
+        <section className="bb-mainpanel" style={mainPanelStyle}>
 
           {/* Route search bar — always visible, compact */}
-          <div style={searchBarStyle}>
-            <div style={searchField}>
+          <div className="bb-searchbar" style={searchBarStyle}>
+            <div className="bb-searchfield" style={searchField}>
               <span style={searchFieldLabel}>From</span>
               <span style={searchFieldValue}>Colombo</span>
             </div>
-            <div style={searchDivider} />
-            <div style={searchField}>
+            <div className="bb-searchdivider" style={searchDivider} />
+            <div className="bb-searchfield" style={searchField}>
               <span style={searchFieldLabel}>To</span>
               <select
                 className="bb-select"
@@ -224,8 +245,8 @@ export default function BusBookingPage() {
                 {Object.keys(DESTINATIONS).map(city => <option key={city} value={city}>{city}</option>)}
               </select>
             </div>
-            <div style={searchDivider} />
-            <div style={searchField}>
+            <div className="bb-searchdivider" style={searchDivider} />
+            <div className="bb-searchfield" style={searchField}>
               <span style={searchFieldLabel}>Date</span>
               <input
                 type="date"
@@ -235,8 +256,8 @@ export default function BusBookingPage() {
                 style={searchFieldInput}
               />
             </div>
-            <div style={searchDivider} />
-            <div style={searchField}>
+            <div className="bb-searchdivider" style={searchDivider} />
+            <div className="bb-searchfield" style={searchField}>
               <span style={searchFieldLabel}>Passengers</span>
               <input
                 type="number"
@@ -250,7 +271,7 @@ export default function BusBookingPage() {
                 style={{ ...searchFieldInput, width: '48px' }}
               />
             </div>
-            <button className="bb-btn-primary" onClick={handleSearch} style={searchBtnStyle}>Search</button>
+            <button className="bb-btn-primary bb-searchbtn" onClick={handleSearch} style={searchBtnStyle}>Search</button>
           </div>
 
           {/* Step 1/2 content: bus list + seat map side by side once searched */}
@@ -259,7 +280,7 @@ export default function BusBookingPage() {
               <p style={{ fontSize: '0.95rem', color: 'rgba(38,38,38,0.55)', margin: 0 }}>Choose a destination and search to see today&rsquo;s buses.</p>
             </div>
           ) : (
-            <div style={workspaceGrid}>
+            <div className="bb-workspace" style={workspaceGrid}>
               {/* Bus list as a vertical timeline */}
               <div>
                 <h3 style={panelHeading}>Departures</h3>
@@ -290,7 +311,7 @@ export default function BusBookingPage() {
                   </div>
                 </div>
 
-                <div style={seatCardStyle}>
+                <div className="bb-seatcard" style={seatCardStyle}>
                   <div style={cockpitRow}>
                     <span style={{ fontSize: '0.7rem', color: 'rgba(38,38,38,0.5)' }}>Front of bus</span>
                     <div style={wheelIcon} />
@@ -338,7 +359,7 @@ export default function BusBookingPage() {
       {showPayment && (
         <>
           <div style={drawerScrim} onClick={() => paymentStep === 'form' && closeDrawer()} />
-          <div style={drawerStyle}>
+          <div className="bb-drawer" style={drawerStyle}>
             {paymentStep === 'form' && (
               <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={drawerHeader}>
@@ -422,7 +443,7 @@ export default function BusBookingPage() {
       {/* ---- Ticket: centered popup, shown after Done ---- */}
       {showTicket && ticket && (
         <div style={ticketOverlay} onClick={() => setShowTicket(false)}>
-          <div style={ticketModalStyle} onClick={(e) => e.stopPropagation()}>
+          <div className="bb-ticket-modal" style={ticketModalStyle} onClick={(e) => e.stopPropagation()}>
             <div style={ticketModalHeader}>
               <span style={{ fontSize: '0.9rem', fontWeight: 700, color: C.ink }}>Your ticket</span>
               <button className="bb-drawer-close" onClick={() => setShowTicket(false)} style={drawerCloseBtn} aria-label="Close">✕</button>
@@ -650,7 +671,7 @@ const TicketField = ({ label, value }: any) => (
 );
 
 const MiniTicket = ({ ticket, onView }: { ticket: Ticket; onView: () => void }) => (
-  <div style={miniTicketWrap}>
+  <div className="bb-miniticket" style={miniTicketWrap}>
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
       <div style={miniTicketIconWrap}><BusIcon /></div>
       <div>

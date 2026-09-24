@@ -97,7 +97,7 @@ const ChatBot = () => {
 
   return (
     <div className="flex h-dvh w-screen overflow-hidden p-4 font-sans text-[#333] md:h-screen md:p-8">
-      <div className="flex h-full w-screen mx-10 flex-col gap-4 transition-transform duration-300 lg:flex-row lg:gap-0 lg:scale-[0.9] lg:origin-top">
+      <div className="flex h-full w-full flex-col gap-4 transition-transform duration-300 lg:w-screen lg:mx-10 lg:flex-row lg:gap-0 lg:scale-[0.9] lg:origin-top">
         
         {/* LEFT SIDEBAR (No changes needed) */}
         <div className="hidden w-full shrink-0 flex-col gap-6 lg:mr-8 lg:flex lg:w-64">
