@@ -358,9 +358,9 @@ export default function Home() {
   }}>
     {/* Central Illustration */}
     <img 
-      src="/middle-bus.png" 
+      src="/desk.png" 
       alt="Bus Support Illustration" 
-      style={{ width: '380px', zIndex: 1, filter: 'drop-shadow(0 12px 20px rgba(0,0,0,0.08))' }} 
+      style={{ width: '330px', zIndex: 1, filter: 'drop-shadow(0 12px 20px rgba(0,0,0,0.08))', borderRadius: '20px' }} 
     />
 
     {/* Bubble: SLTB Contact (Top) */}
@@ -408,7 +408,7 @@ export default function Home() {
     </p>
 
     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '80px' }}>
-      <img src="/steps.png" alt="Booking Steps" style={{ width: '100%', maxWidth: '600px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.06))' }} />
+      <img src="/steps1.png" alt="Booking Steps" style={{ width: '100%', maxWidth: '600px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.06))' , borderRadius: '45px 45px 20px 20px' }} />
     </div>
 
     {/* Top Destinations */}
