@@ -1,1 +1,1 @@
-![Project Logo](./public/git-image.png)
+![Project Logo](./public/PTH-Home.png)
